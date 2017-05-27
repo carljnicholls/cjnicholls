@@ -1,5 +1,18 @@
 ﻿extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+    div.row#content
+        div#row1-offset.col-sm-1.col-md-1
+
+        div.row.col-sm-10.col-md-10
+            div#title.row.col-sm-12.col-md-12
+                h1= title
+
+            div#intro.col-sm-8.col-md-8
+                p= intro
+                br
+            div#bio.col-sm-4.col-md-4
+                a: img(src='/images/pic.jpg' alt='profile-pic')
+                p= bio
+
+        div#row1-offset.col-sm-1.col-md-1

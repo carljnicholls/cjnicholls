@@ -1,8 +1,36 @@
-﻿body {
-    padding: 50px;
-    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+﻿header {
+    font-family: 'Roboto', sans-serif;
+    z-index: 10;
 }
 
-a {
-    color: #00B7FF;
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+
+.top-pad{
+    padding-top: 3em; 
+}
+
+.container {
+
+}
+
+#content {
+    background-color: white;
+    top: 0;
+    bottom: 0;
+    z-index: -1;
+    height: 90vh;
+}
+
+footer {
+    font-family: 'Roboto', sans-serif;
+    z-index: 10;
+    position: fixed;
+    bottom: 0;
+    margin: 0 auto;
+    width:100%;
+}
+#footer-text{
+    text-align:center;
 }
