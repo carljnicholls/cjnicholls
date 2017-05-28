@@ -1,18 +1,23 @@
 ﻿extends layout
 
 block content
-    div.row#content
-        div#row1-offset.col-sm-1.col-md-1
+    #content.row
+        #row1-offset.col-sm-1.col-md-1
 
-        div.row.col-sm-10.col-md-10
-            div#title.row.col-sm-12.col-md-12
+        #row1-content.row.col-sm-10.col-md-10
+            //empty row
+            #title.row.col-sm-12.col-md-12
+            //content
+            #main.col-sm-9.col-md-9
                 h1= title
-
-            div#intro.col-sm-8.col-md-8
-                p= intro
+                p= main
                 br
-            div#bio.col-sm-4.col-md-4
-                a: img(src='/images/pic.jpg' alt='profile-pic')
-                p= bio
+            #sidebar.col-sm-3.col-md-3
+                img(id='profile-pic' src='/images/pic.jpg' alt='profile-pic')
+                strong= sideElement
 
-        div#row1-offset.col-sm-1.col-md-1
+                each val, index in contact
+                    br
+                    a(href=val, target="_blank") #{index}
+
+        #row1-offset.col-sm-1.col-md-1

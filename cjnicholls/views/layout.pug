@@ -2,26 +2,27 @@
 html(lang="en")
     head
         title= title
-        
         link(rel='shortcut icon' type='image/x-icon' href='favicon.ico')
         link(rel='icon' type='image/x-icon' href='favicon.ico')
-
         link(rel='stylesheet', href='/stylesheets/main.css')
         link(rel='stylesheet', href='https://gitcdn.link/repo/Chalarangelo/mini.css/master/dist/mini-nord.min.css')
         link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=Roboto|Open+Sans')
         meta(name="viewport", content="width=device-width, initial-scale=1")
 
-    header
-        div.row
-            div.col-sm-1.col-md-1
-            div.col-sm-10.col-md-10
+    header.sticky
+        .row
+            .col-sm-1.col-md-1
+            .col-sm-10.col-md-10
                 a(class='logo' href='/') CJNicholls
-                a(class='button' href='/contact') Contact
-            div.col-sm-1.col-md-1
+                //-a(class='button' href='/contact') Contact
+            .col-sm-1.col-md-1
 
     body
         #container.container
-            block content
+            .row#inside-padding
+                .col-sm-10.col-md-10.col-sm-offset-1.col-md-offset-1#side-padding-inside
+                    block content
+                    .bottom-pad
 
-    footer#footer
+    footer
         p#footer-text &copy;CJNicholls

@@ -7,6 +7,24 @@ body {
     font-family: 'Open Sans', sans-serif;
 }
 
+#profile-pic {
+    border-radius: 100%;
+}
+
+#sidebar {
+    text-align:right;
+}
+
+footer {
+    margin-top: 20px;
+    font-family: 'Roboto', sans-serif;
+    z-index: 10;
+    position: fixed;
+    bottom: 0;
+    margin: 0 auto;
+    width: 100%;
+}
+
 .top-pad{
     padding-top: 3em; 
 }
@@ -15,22 +33,58 @@ body {
 
 }
 
+.bottom-pad {
+    padding-bottom: 3.5em;
+    background-color: white;
+}
+
 #content {
     background-color: white;
     top: 0;
     bottom: 0;
     z-index: -1;
-    height: 90vh;
+    /*min-height: 90vh;*/
+    min-height: 85vh;
 }
 
-footer {
-    font-family: 'Roboto', sans-serif;
-    z-index: 10;
-    position: fixed;
-    bottom: 0;
-    margin: 0 auto;
-    width:100%;
-}
 #footer-text{
     text-align:center;
+}
+
+/* selected content */
+::-moz-selection {
+    color: white;
+}
+
+::selection {
+    color: white;
+}
+
+::-moz-selection {
+    background: #2e3440;
+}
+
+::selection {
+    background: #2e3440;
+}
+
+/* unvisited link */
+a:link {
+    color: blue;
+}
+
+/* visited link */
+a:visited {
+    color: blue;
+}
+
+/* mouse over link */
+a:hover {
+    color: white;
+    background-color: #2e3440;
+}
+
+/* selected link */
+a:active {
+    color: #2e3440;
 }
