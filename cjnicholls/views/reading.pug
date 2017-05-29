@@ -1,0 +1,19 @@
+﻿extends layout
+
+block content
+    #content.row
+        #row1-offset.col-sm-1.col-md-1
+
+        #row1-content.row.col-sm-10.col-md-10
+            //empty row
+            #title.row.col-sm-12.col-md-12
+            //content
+            #main.col-sm-12.col-md-12
+                h1= title
+                p= main
+                br
+                each val, index in resources
+                    ul
+                        li: a(href=val, target="_blank") #{index}
+
+        #row1-offset.col-sm-1.col-md-1
