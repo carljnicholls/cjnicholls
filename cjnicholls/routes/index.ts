@@ -8,17 +8,17 @@ router.get('/', (req: express.Request, res: express.Response) => {
     var contact = {
         Email: 'mailto:carljnicholls@hotmail.com',
         GitHub: 'https://github.com/carljnicholls',
-        LinkedIn: 'https://linkedin.com/in/carl-nicholls'
-        //,
-        //Résumé: '/pdf/cv.pdf'
+        LinkedIn: 'https://linkedin.com/in/carl-nicholls',
+        Résumé: '/pdf/cv.pdf'
     };
 
     res.render('index', {
-        title: 'CJNicholls',
+        title: 'Carl James Nicholls',
         intro: '2016-17 graduate in BSc(Hons) Computing from the University of Plymouth. ' +
                 'Full stack developer with experience in .NET, OO, Node.js, Azure and JavaScript. ',
         main: 'Interests include scientific and technological current events, bleeding edge technologies ' +
-                'as well as the potential applications or consequences.',
+                'as well as the potential applications or consequences.' ,
+                //+ 'I am also interested in opensource technologies and',
         sideElement: 'Contact:',
         contact: contact
     });
