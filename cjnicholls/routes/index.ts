@@ -1,9 +1,9 @@
-﻿/*
- * GET home page.
- */
-import express = require('express');
+﻿import express = require('express');
 const router = express.Router();
 
+/*
+ * GET home page.
+ */
 router.get('/', (req: express.Request, res: express.Response) => {
     var contact = {
         Email: 'mailto:carljnicholls@hotmail.com',
@@ -14,16 +14,18 @@ router.get('/', (req: express.Request, res: express.Response) => {
 
     res.render('index', {
         title: 'Carl James Nicholls',
-        intro: '2016-17 graduate in BSc(Hons) Computing from the University of Plymouth. ' +
-                'Full stack developer with experience in .NET, OO, Node.js, Azure and JavaScript. ',
-        main: 'Interests include scientific and technological current events, bleeding edge technologies ' +
+        intro: '2016-17 graduate in BSc (Hons) Computing from the University of Plymouth. ' +
+                'Full stack developer with experience in .NET, OO, Node.js, Azure, JavaScript, Bootstrap 3 and mini.css. ',
+        main: 'Interests include current scientific and technological events, bleeding edge technologies ' +
                 'as well as the potential applications or consequences.' ,
-                //+ 'I am also interested in opensource technologies and',
         sideElement: 'Contact:',
         contact: contact
     });
 });
 
+/*
+ * GET reading list.
+ */
 router.get('/readinglist', (req: express.Request, res: express.Response) => {
     var resources = {
         'Practical Color Theory for People Who Code': 'https://tallys.github.io/color-theory/',
@@ -44,7 +46,10 @@ router.get('/readinglist', (req: express.Request, res: express.Response) => {
     });
 });
 
-// robots.txt route for SEO 
+/*
+ * GET robots.txt.
+ * dont index cv
+ */
 router.get('/robots.txt', function (req, res) {
     res.type('text/plain');
     res.send(

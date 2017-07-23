@@ -1,10 +1,10 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+var express = require("express");
+var router = express.Router();
 /*
  * GET home page.
  */
-var express = require("express");
-var router = express.Router();
 router.get('/', function (req, res) {
     var contact = {
         Email: 'mailto:carljnicholls@hotmail.com',
@@ -14,15 +14,17 @@ router.get('/', function (req, res) {
     };
     res.render('index', {
         title: 'Carl James Nicholls',
-        intro: '2016-17 graduate in BSc(Hons) Computing from the University of Plymouth. ' +
-            'Full stack developer with experience in .NET, OO, Node.js, Azure and JavaScript. ',
-        main: 'Interests include scientific and technological current events, bleeding edge technologies ' +
+        intro: '2016-17 graduate in BSc (Hons) Computing from the University of Plymouth. ' +
+            'Full stack developer with experience in .NET, OO, Node.js, Azure, JavaScript, Bootstrap 3 and mini.css. ',
+        main: 'Interests include current scientific and technological events, bleeding edge technologies ' +
             'as well as the potential applications or consequences.',
-        //+ 'I am also interested in opensource technologies and',
         sideElement: 'Contact:',
         contact: contact
     });
 });
+/*
+ * GET reading list.
+ */
 router.get('/readinglist', function (req, res) {
     var resources = {
         'Practical Color Theory for People Who Code': 'https://tallys.github.io/color-theory/',
@@ -41,7 +43,10 @@ router.get('/readinglist', function (req, res) {
         resources: resources
     });
 });
-// robots.txt route for SEO 
+/*
+ * GET robots.txt.
+ * dont index cv
+ */
 router.get('/robots.txt', function (req, res) {
     res.type('text/plain');
     res.send("User-agent: *\nAllow: /  \n" +
