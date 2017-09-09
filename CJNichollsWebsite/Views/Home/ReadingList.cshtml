@@ -1,0 +1,18 @@
+﻿<div class="row">
+    <div class="col-md-10 col-md-offset-1">
+        <div class="row">
+            <h1>
+                @Model.Title
+            </h1>
+            <p>
+                @Model.Main
+            </p>
+            <ul>
+                @foreach (var item in (Dictionary<string, string>)Model.ReadingList)
+                {
+                    <li> <a href="@item.Value">@item.Key</a> </li>
+                }
+            </ul>
+        </div>
+    </div>
+</div>

@@ -13,14 +13,14 @@ header a:hover {
     filter: invert(100%);
 }
 
-/* body font */
 body {
+    /*padding-bottom: 20px;*/
     font-family: 'Open Sans', sans-serif;
 }
 
 /* p size for better readabilty */
 p {
-    font-size:1.1em;
+    font-size: 1.1em;
 }
 
 /*
@@ -28,17 +28,17 @@ p {
     pointer effect - np drag 
 */
 #profile-pic {
-    border-radius: 100%;
-    /*pointer-events: auto;*/
+    border-radius: 50%;
     pointer-events: none;
+    padding-top: 10px;
+    width: auto;
 }
 
 /*
     sidebar id element  
 */
 #sidebar {
-    align-self:flex-end;
-    text-align:right;
+    text-align: right;
 }
 
 /*
@@ -64,10 +64,12 @@ footer {
 hr#index {
     border-top: 2px solid #8c8b8b;
     text-align: center;
-    margin-top:-15px;
+    margin-top: -15px;
+    z-index: 10;
+    width: 100%;
 }
 
- /* 
+/* 
     thematic break posistioning to be under text above on id of index
 */
 hr#index:after {
@@ -75,20 +77,22 @@ hr#index:after {
     position: relative;
     top: -14px;
     padding: 10px;
+    width: 100%;
 }
 
 /* 
     top padding class
 */
-.top-pad{
-    padding-top: 3em; 
+.top-pad {
+    padding-top: 3em;
+    background-color: white;
 }
 
 /* 
     bottom padding class
 */
 .bottom-pad {
-    padding-bottom: 3.5em;
+    padding-bottom: 4.5em;
     background-color: white;
 }
 
@@ -105,14 +109,15 @@ hr#index:after {
     z-index: -1;
     /*min-height: 90vh;*/
     min-height: 85vh;
+    width: auto;
 }
 
 /*
     footer id element 
 */
-#footer-text{
-    padding-top:0px;
-    text-align:center;
+#footer-text {
+    padding-top: 0px;
+    text-align: center;
 }
 
 /* 
@@ -133,7 +138,6 @@ hr#index:after {
 
 /* 
     unvisited link
-
 */
 a:link {
     color: blue;
@@ -159,4 +163,12 @@ a:hover {
 */
 a:active {
     color: #2e3440;
+}
+
+/* Hide/rearrange for smaller screens */
+@media screen and (max-width: 767px) {
+    /* Hide captions */
+    .carousel-caption {
+        display: none;
+    }
 }

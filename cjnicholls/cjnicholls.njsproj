@@ -6,6 +6,8 @@
     <Name>cjnicholls</Name>
     <RootNamespace>cjnicholls</RootNamespace>
     <NameOfLastUsedPublishProfile>cjnicholls - Web Deploy</NameOfLastUsedPublishProfile>
+    <ToolsVersionPromptShown>0.0</ToolsVersionPromptShown>
+    <TypeScriptToolsVersion>2.3</TypeScriptToolsVersion>
   </PropertyGroup>
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>

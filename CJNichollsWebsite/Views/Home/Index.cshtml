@@ -1,0 +1,32 @@
+﻿<div class="row">
+    <div class="col-md-8 col-md-offset-1">
+        <div class="row">
+            <h1>
+                @Model.Title
+            </h1>
+            <p><hr id="index" /></p>
+            <hr>
+            <p>
+                @Model.Intro
+            </p>
+            <p>
+                @Model.Main
+            </p>
+        </div>
+    </div>
+    <div class="col-md-2">
+        <br />
+        <img id="profile-pic" src="@Model.DisplayPictureLocation" alt="profile-pic" />
+        <h2>
+            @Model.SideElementTitle
+        </h2>
+        <ul>
+            @foreach (var item in (Dictionary<string, string>)Model.ContactInfo)
+            {
+                <li>
+                    <a href="@item.Value"> @item.Key </a>
+                </li>
+            }
+        </ul>
+    </div>
+</div>
