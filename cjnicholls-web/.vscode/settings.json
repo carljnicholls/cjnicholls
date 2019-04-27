@@ -7,5 +7,13 @@
 
         "activityBar.background": "#caafe8",
         "activityBar.foreground": "#15202b",
-    }
+    },
+    "cSpell.words": [
+        "cjnicholls",
+        "codelyzer",
+        "devkit",
+        "jasminewd",
+        "junit",
+        "tslib"
+    ]
 }

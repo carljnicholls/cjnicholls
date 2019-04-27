@@ -1,0 +1,396 @@
+{
+    "source": 2,
+    "revision": 4,
+    "description": null,
+    "createdBy": {
+        "displayName": "Carl Nicholls",
+        "url": "https://app.vssps.visualstudio.com/A8c9053df-9a88-4fde-a9b5-cf1bcc8b165c/_apis/Identities/cf9fc475-aae9-4426-bfe7-84241b613d8f",
+        "_links": {
+            "avatar": {
+                "href": "https://carljnicholls.visualstudio.com/_apis/GraphProfile/MemberAvatars/msa.ODUzNTRjNWQtZWYxMy03MWIzLTg3ZWYtYTY4NjQ5ZWUxOWM0"
+            }
+        },
+        "id": "cf9fc475-aae9-4426-bfe7-84241b613d8f",
+        "uniqueName": "carljnicholls@hotmail.com",
+        "imageUrl": "https://carljnicholls.visualstudio.com/_apis/GraphProfile/MemberAvatars/msa.ODUzNTRjNWQtZWYxMy03MWIzLTg3ZWYtYTY4NjQ5ZWUxOWM0",
+        "descriptor": "msa.ODUzNTRjNWQtZWYxMy03MWIzLTg3ZWYtYTY4NjQ5ZWUxOWM0"
+    },
+    "createdOn": "2019-04-27T14:46:29.773Z",
+    "modifiedBy": {
+        "displayName": "Carl Nicholls",
+        "url": "https://app.vssps.visualstudio.com/A8c9053df-9a88-4fde-a9b5-cf1bcc8b165c/_apis/Identities/cf9fc475-aae9-4426-bfe7-84241b613d8f",
+        "_links": {
+            "avatar": {
+                "href": "https://carljnicholls.visualstudio.com/_apis/GraphProfile/MemberAvatars/msa.ODUzNTRjNWQtZWYxMy03MWIzLTg3ZWYtYTY4NjQ5ZWUxOWM0"
+            }
+        },
+        "id": "cf9fc475-aae9-4426-bfe7-84241b613d8f",
+        "uniqueName": "carljnicholls@hotmail.com",
+        "imageUrl": "https://carljnicholls.visualstudio.com/_apis/GraphProfile/MemberAvatars/msa.ODUzNTRjNWQtZWYxMy03MWIzLTg3ZWYtYTY4NjQ5ZWUxOWM0",
+        "descriptor": "msa.ODUzNTRjNWQtZWYxMy03MWIzLTg3ZWYtYTY4NjQ5ZWUxOWM0"
+    },
+    "modifiedOn": "2019-04-27T18:24:52.387Z",
+    "isDeleted": false,
+    "variables": {},
+    "variableGroups": [],
+    "environments": [
+        {
+            "id": 1,
+            "name": "Deploy to cjnicholls.azurewebsites.net",
+            "rank": 1,
+            "owner": {
+                "displayName": "Carl Nicholls",
+                "url": "https://app.vssps.visualstudio.com/A8c9053df-9a88-4fde-a9b5-cf1bcc8b165c/_apis/Identities/cf9fc475-aae9-4426-bfe7-84241b613d8f",
+                "_links": {
+                    "avatar": {
+                        "href": "https://carljnicholls.visualstudio.com/_apis/GraphProfile/MemberAvatars/msa.ODUzNTRjNWQtZWYxMy03MWIzLTg3ZWYtYTY4NjQ5ZWUxOWM0"
+                    }
+                },
+                "id": "cf9fc475-aae9-4426-bfe7-84241b613d8f",
+                "uniqueName": "carljnicholls@hotmail.com",
+                "imageUrl": "https://carljnicholls.visualstudio.com/_apis/GraphProfile/MemberAvatars/msa.ODUzNTRjNWQtZWYxMy03MWIzLTg3ZWYtYTY4NjQ5ZWUxOWM0",
+                "descriptor": "msa.ODUzNTRjNWQtZWYxMy03MWIzLTg3ZWYtYTY4NjQ5ZWUxOWM0"
+            },
+            "variables": {},
+            "variableGroups": [],
+            "preDeployApprovals": {
+                "approvals": [
+                    {
+                        "rank": 1,
+                        "isAutomated": true,
+                        "isNotificationOn": false,
+                        "id": 1
+                    }
+                ],
+                "approvalOptions": {
+                    "requiredApproverCount": null,
+                    "releaseCreatorCanBeApprover": false,
+                    "autoTriggeredAndPreviousEnvironmentApprovedCanBeSkipped": false,
+                    "enforceIdentityRevalidation": false,
+                    "timeoutInMinutes": 0,
+                    "executionOrder": 1
+                }
+            },
+            "deployStep": {
+                "id": 2
+            },
+            "postDeployApprovals": {
+                "approvals": [
+                    {
+                        "rank": 1,
+                        "isAutomated": true,
+                        "isNotificationOn": false,
+                        "id": 3
+                    }
+                ],
+                "approvalOptions": {
+                    "requiredApproverCount": null,
+                    "releaseCreatorCanBeApprover": false,
+                    "autoTriggeredAndPreviousEnvironmentApprovedCanBeSkipped": false,
+                    "enforceIdentityRevalidation": false,
+                    "timeoutInMinutes": 0,
+                    "executionOrder": 2
+                }
+            },
+            "deployPhases": [
+                {
+                    "deploymentInput": {
+                        "parallelExecution": {
+                            "parallelExecutionType": 0
+                        },
+                        "agentSpecification": null,
+                        "skipArtifactsDownload": false,
+                        "artifactsDownloadInput": {
+                            "downloadInputs": [
+                                {
+                                    "alias": "_cjnicholls-web-CI",
+                                    "artifactType": "Build",
+                                    "artifactDownloadMode": "Selective",
+                                    "artifactItems": [
+                                        "dist/**"
+                                    ]
+                                }
+                            ]
+                        },
+                        "queueId": 39,
+                        "demands": [],
+                        "enableAccessToken": false,
+                        "timeoutInMinutes": 0,
+                        "jobCancelTimeoutInMinutes": 1,
+                        "condition": "succeeded()",
+                        "overrideInputs": {}
+                    },
+                    "rank": 1,
+                    "phaseType": 1,
+                    "name": "Run on agent",
+                    "refName": null,
+                    "workflowTasks": [
+                        {
+                            "environment": {},
+                            "taskId": "497d490f-eea7-4f2b-ab94-48d9c1acdcb1",
+                            "version": "4.*",
+                            "name": "Deploy Azure App Service",
+                            "refName": "",
+                            "enabled": true,
+                            "alwaysRun": false,
+                            "continueOnError": false,
+                            "timeoutInMinutes": 0,
+                            "definitionType": null,
+                            "overrideInputs": {},
+                            "condition": "succeeded()",
+                            "inputs": {
+                                "ConnectionType": "AzureRM",
+                                "ConnectedServiceName": "$(Parameters.ConnectedServiceName)",
+                                "PublishProfilePath": "$(System.DefaultWorkingDirectory)/**/*.pubxml",
+                                "PublishProfilePassword": "",
+                                "WebAppKind": "$(Parameters.WebAppKind)",
+                                "WebAppName": "$(Parameters.WebAppName)",
+                                "DeployToSlotOrASEFlag": "false",
+                                "ResourceGroupName": "cjnicholls",
+                                "SlotName": "production",
+                                "DockerNamespace": "$(Parameters.DockerNamespace)",
+                                "DockerRepository": "$(Parameters.DockerRepository)",
+                                "DockerImageTag": "$(Build.BuildId)",
+                                "VirtualApplication": "",
+                                "Package": "$(System.DefaultWorkingDirectory)/_cjnicholls-web-CI/dist/cjnicholls-web",
+                                "RuntimeStack": "",
+                                "RuntimeStackFunction": "",
+                                "StartupCommand": "",
+                                "ScriptType": "",
+                                "InlineScript": "",
+                                "ScriptPath": "",
+                                "WebConfigParameters": "",
+                                "AppSettings": "",
+                                "ConfigurationSettings": "",
+                                "UseWebDeploy": "false",
+                                "DeploymentType": "webDeploy",
+                                "TakeAppOfflineFlag": "true",
+                                "SetParametersFile": "",
+                                "RemoveAdditionalFilesFlag": "false",
+                                "ExcludeFilesFromAppDataFlag": "false",
+                                "AdditionalArguments": "",
+                                "RenameFilesFlag": "true",
+                                "XmlTransformation": "false",
+                                "XmlVariableSubstitution": "false",
+                                "JSONFiles": ""
+                            }
+                        }
+                    ]
+                }
+            ],
+            "environmentOptions": {
+                "emailNotificationType": "OnlyOnFailure",
+                "emailRecipients": "release.environment.owner;release.creator",
+                "skipArtifactsDownload": false,
+                "timeoutInMinutes": 0,
+                "enableAccessToken": false,
+                "publishDeploymentStatus": true,
+                "badgeEnabled": false,
+                "autoLinkWorkItems": false,
+                "pullRequestDeploymentEnabled": false
+            },
+            "demands": [],
+            "conditions": [
+                {
+                    "name": "ReleaseStarted",
+                    "conditionType": 1,
+                    "value": ""
+                }
+            ],
+            "executionPolicy": {
+                "concurrencyCount": 1,
+                "queueDepthCount": 0
+            },
+            "schedules": [],
+            "currentRelease": {
+                "id": 2,
+                "url": "https://carljnicholls.vsrm.visualstudio.com/1c394c32-e393-4a59-8d4d-7226a7c83404/_apis/Release/releases/2",
+                "_links": {}
+            },
+            "retentionPolicy": {
+                "daysToKeep": 30,
+                "releasesToKeep": 3,
+                "retainBuild": true
+            },
+            "processParameters": {
+                "inputs": [
+                    {
+                        "aliases": [],
+                        "options": {},
+                        "properties": {},
+                        "name": "ConnectedServiceName",
+                        "label": "Azure subscription",
+                        "defaultValue": "ee70fe6f-680b-4861-8b52-cd07537568db",
+                        "required": true,
+                        "type": "connectedService:AzureRM",
+                        "helpMarkDown": "Select the Azure Resource Manager subscription for the deployment.",
+                        "visibleRule": "",
+                        "groupName": ""
+                    },
+                    {
+                        "aliases": [],
+                        "options": {
+                            "webApp": "Web App on Windows",
+                            "webAppLinux": "Web App on Linux",
+                            "webAppContainer": "Web App for Containers (Linux)",
+                            "functionApp": "Function App on Windows",
+                            "functionAppLinux": "Function App on Linux",
+                            "functionAppContainer": "Function App for Containers (Linux)",
+                            "apiApp": "API App",
+                            "mobileApp": "Mobile App"
+                        },
+                        "properties": {
+                            "EditableOptions": "false"
+                        },
+                        "name": "WebAppKind",
+                        "label": "App type",
+                        "defaultValue": "webApp",
+                        "type": "pickList",
+                        "helpMarkDown": "",
+                        "groupName": ""
+                    },
+                    {
+                        "aliases": [],
+                        "options": {},
+                        "properties": {
+                            "EditableOptions": "True"
+                        },
+                        "name": "WebAppName",
+                        "label": "App service name",
+                        "defaultValue": "cjnicholls",
+                        "required": true,
+                        "type": "pickList",
+                        "helpMarkDown": "Enter or select the name of an existing Azure App Service.",
+                        "visibleRule": "",
+                        "groupName": ""
+                    },
+                    {
+                        "aliases": [],
+                        "options": {},
+                        "properties": {},
+                        "name": "DockerNamespace",
+                        "label": "Registry or Namespace",
+                        "defaultValue": "",
+                        "required": true,
+                        "type": "string",
+                        "helpMarkDown": "A globally unique top-level domain name for your specific registry or namespace.<br/> Note: Fully qualified image name will be of the format: '<b>`<registry or namespace`></b>/`<repository`>:`<tag`>'. For example, '<b>myregistry.azurecr.io</b>/nginx:latest'.",
+                        "visibleRule": "WebAppKind = webAppContainer || WebAppkind = functionAppContainer",
+                        "groupName": ""
+                    },
+                    {
+                        "aliases": [],
+                        "options": {},
+                        "properties": {},
+                        "name": "DockerRepository",
+                        "label": "Repository",
+                        "defaultValue": "",
+                        "required": true,
+                        "type": "string",
+                        "helpMarkDown": "Name of the repository where the container images are stored.<br/> Note: Fully qualified image name will be of the format: '`<registry or namespace`>/<b>`<repository`></b>:`<tag`>'. For example, 'myregistry.azurecr.io/<b>nginx</b>:latest'.",
+                        "visibleRule": "WebAppKind = webAppContainer || WebAppkind = functionAppContainer",
+                        "groupName": ""
+                    }
+                ],
+                "dataSourceBindings": [
+                    {
+                        "dataSourceName": "AzureRMWebAppNamesByAppType",
+                        "parameters": {
+                            "WebAppKind": "$(WebAppKind)"
+                        },
+                        "endpointId": "$(ConnectedServiceName)",
+                        "target": "WebAppName"
+                    }
+                ]
+            },
+            "properties": {},
+            "preDeploymentGates": {
+                "id": 0,
+                "gatesOptions": null,
+                "gates": []
+            },
+            "postDeploymentGates": {
+                "id": 0,
+                "gatesOptions": null,
+                "gates": []
+            },
+            "environmentTriggers": [],
+            "badgeUrl": "https://carljnicholls.vsrm.visualstudio.com/_apis/public/Release/badge/1c394c32-e393-4a59-8d4d-7226a7c83404/1/1"
+        }
+    ],
+    "artifacts": [
+        {
+            "sourceId": "1c394c32-e393-4a59-8d4d-7226a7c83404:7",
+            "type": "Build",
+            "alias": "_cjnicholls-web-CI",
+            "definitionReference": {
+                "artifactSourceDefinitionUrl": {
+                    "id": "https://carljnicholls.visualstudio.com/_permalink/_build/index?collectionId=3abce796-3790-4aa5-bbe1-660c20764b6b&projectId=1c394c32-e393-4a59-8d4d-7226a7c83404&definitionId=7",
+                    "name": ""
+                },
+                "defaultVersionBranch": {
+                    "id": "",
+                    "name": ""
+                },
+                "defaultVersionSpecific": {
+                    "id": "",
+                    "name": ""
+                },
+                "defaultVersionTags": {
+                    "id": "",
+                    "name": ""
+                },
+                "defaultVersionType": {
+                    "id": "latestType",
+                    "name": "Latest"
+                },
+                "definition": {
+                    "id": "7",
+                    "name": "cjnicholls-web-CI"
+                },
+                "definitions": {
+                    "id": "",
+                    "name": ""
+                },
+                "IsMultiDefinitionType": {
+                    "id": "False",
+                    "name": "False"
+                },
+                "project": {
+                    "id": "1c394c32-e393-4a59-8d4d-7226a7c83404",
+                    "name": "cjnicholls-web"
+                },
+                "repository": {
+                    "id": "",
+                    "name": ""
+                }
+            },
+            "isPrimary": true,
+            "isRetained": false
+        }
+    ],
+    "triggers": [],
+    "releaseNameFormat": "Release-$(rev:r)",
+    "tags": [],
+    "pipelineProcess": {
+        "type": 1
+    },
+    "properties": {
+        "DefinitionCreationSource": {
+            "$type": "System.String",
+            "$value": "ReleaseNew"
+        }
+    },
+    "id": 1,
+    "name": "Deploy to cjnicholls.azurewebsites.net",
+    "path": "\\",
+    "projectReference": null,
+    "url": "https://carljnicholls.vsrm.visualstudio.com/1c394c32-e393-4a59-8d4d-7226a7c83404/_apis/Release/definitions/1",
+    "_links": {
+        "self": {
+            "href": "https://carljnicholls.vsrm.visualstudio.com/1c394c32-e393-4a59-8d4d-7226a7c83404/_apis/Release/definitions/1"
+        },
+        "web": {
+            "href": "https://carljnicholls.visualstudio.com/1c394c32-e393-4a59-8d4d-7226a7c83404/_release?definitionId=1"
+        }
+    }
+}

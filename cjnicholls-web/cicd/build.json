@@ -1,0 +1,349 @@
+{
+    "options": [
+        {
+            "enabled": false,
+            "definition": {
+                "id": "5d58cc01-7c75-450c-be18-a388ddb129ec"
+            },
+            "inputs": {
+                "branchFilters": "[\"+refs/heads/*\"]",
+                "additionalFields": "{}"
+            }
+        },
+        {
+            "enabled": false,
+            "definition": {
+                "id": "a9db38f9-9fdc-478c-b0f9-464221e58316"
+            },
+            "inputs": {
+                "workItemType": "Bug",
+                "assignToRequestor": "true",
+                "additionalFields": "{}"
+            }
+        }
+    ],
+    "variables": {
+        "system.debug": {
+            "value": "false",
+            "allowOverride": true
+        }
+    },
+    "retentionRules": [
+        {
+            "branches": [
+                "+refs/heads/*"
+            ],
+            "artifacts": [],
+            "artifactTypesToDelete": [
+                "FilePath",
+                "SymbolStore"
+            ],
+            "daysToKeep": 10,
+            "minimumToKeep": 1,
+            "deleteBuildRecord": true,
+            "deleteTestResults": true
+        }
+    ],
+    "properties": {},
+    "tags": [],
+    "_links": {
+        "self": {
+            "href": "https://carljnicholls.visualstudio.com/1c394c32-e393-4a59-8d4d-7226a7c83404/_apis/build/Definitions/7?revision=9"
+        },
+        "web": {
+            "href": "https://carljnicholls.visualstudio.com/1c394c32-e393-4a59-8d4d-7226a7c83404/_build/definition?definitionId=7"
+        },
+        "editor": {
+            "href": "https://carljnicholls.visualstudio.com/1c394c32-e393-4a59-8d4d-7226a7c83404/_build/designer?id=7&_a=edit-build-definition"
+        },
+        "badge": {
+            "href": "https://carljnicholls.visualstudio.com/1c394c32-e393-4a59-8d4d-7226a7c83404/_apis/build/status/7"
+        }
+    },
+    "jobAuthorizationScope": 1,
+    "jobTimeoutInMinutes": 60,
+    "jobCancelTimeoutInMinutes": 5,
+    "process": {
+        "phases": [
+            {
+                "steps": [
+                    {
+                        "environment": {},
+                        "enabled": true,
+                        "continueOnError": false,
+                        "alwaysRun": false,
+                        "displayName": "npm install",
+                        "timeoutInMinutes": 0,
+                        "condition": "succeeded()",
+                        "task": {
+                            "id": "fe47e961-9fa8-4106-8639-368c022d43ad",
+                            "versionSpec": "1.*",
+                            "definitionType": "task"
+                        },
+                        "inputs": {
+                            "command": "install",
+                            "workingDir": "cjnicholls-web",
+                            "verbose": "false",
+                            "customCommand": "",
+                            "customRegistry": "useNpmrc",
+                            "customFeed": "",
+                            "customEndpoint": "",
+                            "publishRegistry": "useExternalRegistry",
+                            "publishFeed": "",
+                            "publishPackageMetadata": "true",
+                            "publishEndpoint": ""
+                        }
+                    },
+                    {
+                        "environment": {},
+                        "enabled": true,
+                        "continueOnError": false,
+                        "alwaysRun": false,
+                        "displayName": "npm test",
+                        "timeoutInMinutes": 0,
+                        "condition": "succeeded()",
+                        "task": {
+                            "id": "fe47e961-9fa8-4106-8639-368c022d43ad",
+                            "versionSpec": "1.*",
+                            "definitionType": "task"
+                        },
+                        "inputs": {
+                            "command": "custom",
+                            "workingDir": "cjnicholls-web",
+                            "verbose": "false",
+                            "customCommand": "test",
+                            "customRegistry": "useNpmrc",
+                            "customFeed": "",
+                            "customEndpoint": "",
+                            "publishRegistry": "useExternalRegistry",
+                            "publishFeed": "",
+                            "publishPackageMetadata": "true",
+                            "publishEndpoint": ""
+                        }
+                    },
+                    {
+                        "environment": {},
+                        "enabled": true,
+                        "continueOnError": false,
+                        "alwaysRun": false,
+                        "displayName": "Publish Test Results **/cjnicholls-web/test_results/junit/TESTS-*.xml",
+                        "timeoutInMinutes": 0,
+                        "condition": "succeeded()",
+                        "task": {
+                            "id": "0b0f01ed-7dde-43ff-9cbb-e48954daf9b1",
+                            "versionSpec": "2.*",
+                            "definitionType": "task"
+                        },
+                        "inputs": {
+                            "testRunner": "JUnit",
+                            "testResultsFiles": "**/cjnicholls-web/test_results/junit/TESTS-*.xml",
+                            "searchFolder": "$(System.DefaultWorkingDirectory)",
+                            "mergeTestResults": "false",
+                            "failTaskOnFailedTests": "false",
+                            "testRunTitle": "",
+                            "platform": "",
+                            "configuration": "",
+                            "publishRunAttachments": "true"
+                        }
+                    },
+                    {
+                        "environment": {},
+                        "enabled": true,
+                        "continueOnError": false,
+                        "alwaysRun": false,
+                        "displayName": "Publish code coverage from **/cjnicholls-web/test_results/coverage/cobertura-coverage.xml",
+                        "timeoutInMinutes": 0,
+                        "condition": "succeeded()",
+                        "task": {
+                            "id": "2a7ebc54-c13e-490e-81a5-d7561ab7cd97",
+                            "versionSpec": "1.*",
+                            "definitionType": "task"
+                        },
+                        "inputs": {
+                            "codeCoverageTool": "Cobertura",
+                            "summaryFileLocation": "**/cjnicholls-web/test_results/coverage/cobertura-coverage.xml",
+                            "reportDirectory": "**/cjnicholls-web/test_results/coverage/",
+                            "additionalCodeCoverageFiles": "",
+                            "failIfCoverageEmpty": "false"
+                        }
+                    },
+                    {
+                        "environment": {},
+                        "enabled": true,
+                        "continueOnError": false,
+                        "alwaysRun": false,
+                        "displayName": "npm build",
+                        "timeoutInMinutes": 0,
+                        "condition": "succeeded()",
+                        "task": {
+                            "id": "fe47e961-9fa8-4106-8639-368c022d43ad",
+                            "versionSpec": "1.*",
+                            "definitionType": "task"
+                        },
+                        "inputs": {
+                            "command": "custom",
+                            "workingDir": "cjnicholls-web",
+                            "verbose": "false",
+                            "customCommand": "run-script build",
+                            "customRegistry": "useNpmrc",
+                            "customFeed": "",
+                            "customEndpoint": "",
+                            "publishRegistry": "useExternalRegistry",
+                            "publishFeed": "",
+                            "publishPackageMetadata": "true",
+                            "publishEndpoint": ""
+                        }
+                    },
+                    {
+                        "environment": {},
+                        "enabled": true,
+                        "continueOnError": false,
+                        "alwaysRun": false,
+                        "displayName": "Publish Artifact: dist",
+                        "timeoutInMinutes": 0,
+                        "condition": "succeeded()",
+                        "task": {
+                            "id": "2ff763a7-ce83-4e1f-bc89-0ae63477cebe",
+                            "versionSpec": "1.*",
+                            "definitionType": "task"
+                        },
+                        "inputs": {
+                            "PathtoPublish": "cjnicholls-web/dist",
+                            "ArtifactName": "dist",
+                            "ArtifactType": "Container",
+                            "TargetPath": "",
+                            "Parallel": "false",
+                            "ParallelCount": "8"
+                        }
+                    },
+                    {
+                        "environment": {},
+                        "enabled": false,
+                        "continueOnError": false,
+                        "alwaysRun": false,
+                        "displayName": "Publish Artifact: dist copy",
+                        "timeoutInMinutes": 0,
+                        "condition": "succeeded()",
+                        "task": {
+                            "id": "2ff763a7-ce83-4e1f-bc89-0ae63477cebe",
+                            "versionSpec": "1.*",
+                            "definitionType": "task"
+                        },
+                        "inputs": {
+                            "PathtoPublish": "$(Build.ArtifactStagingDirectory)",
+                            "ArtifactName": "dist",
+                            "ArtifactType": "Container",
+                            "TargetPath": "",
+                            "Parallel": "false",
+                            "ParallelCount": "8"
+                        }
+                    }
+                ],
+                "name": "Agent job 1",
+                "refName": "Job_1",
+                "condition": "succeeded()",
+                "target": {
+                    "executionOptions": {
+                        "type": 0
+                    },
+                    "allowScriptsAuthAccessOption": false,
+                    "type": 1
+                },
+                "jobAuthorizationScope": 1
+            }
+        ],
+        "type": 1
+    },
+    "repository": {
+        "properties": {
+            "apiUrl": "https://api.github.com/repos/carljnicholls/cjnicholls",
+            "branchesUrl": "https://api.github.com/repos/carljnicholls/cjnicholls/branches",
+            "cloneUrl": "https://github.com/carljnicholls/cjnicholls.git",
+            "connectedServiceId": "79b5f4e9-fb05-4434-8264-c0f53e5e5220",
+            "defaultBranch": "master",
+            "fullName": "carljnicholls/cjnicholls",
+            "hasAdminPermissions": "True",
+            "isFork": "False",
+            "isPrivate": "False",
+            "lastUpdated": "09/09/2017 10:16:22",
+            "manageUrl": "https://github.com/carljnicholls/cjnicholls",
+            "nodeId": "MDEwOlJlcG9zaXRvcnk5MjYxMTIyMA==",
+            "ownerId": "10516728",
+            "orgName": "carljnicholls",
+            "refsUrl": "https://api.github.com/repos/carljnicholls/cjnicholls/git/refs",
+            "shortName": "cjnicholls",
+            "ownerAvatarUrl": "https://avatars3.githubusercontent.com/u/10516728?v=4",
+            "archived": "False",
+            "externalId": "92611220",
+            "safeId": "4794CDDE9BC254B409238FDE5C6289E64CC97F85DF264349884CD74D1CA2A942D201E26B764B7E0AE85F472020B1FC5F86A32366C55177385C9196631FE0/cjnicholls",
+            "safeOwnerId": "4794CDDE9BC254B409238FDE5C6289E64CC97F85DF264349884CD74D1CA2A942D201E26B764B7E0AE85F472020B1FC5F86A32366C55177385C9196631FE0",
+            "safeRepository": "cjnicholls",
+            "ownerIsAUser": "True",
+            "checkoutNestedSubmodules": "false",
+            "cleanOptions": "0",
+            "fetchDepth": "0",
+            "gitLfsSupport": "false",
+            "reportBuildStatus": "true",
+            "skipSyncSource": "false",
+            "labelSourcesFormat": "$(build.buildNumber)",
+            "labelSources": "0"
+        },
+        "id": "carljnicholls/cjnicholls",
+        "type": "GitHub",
+        "name": "carljnicholls/cjnicholls",
+        "url": "https://github.com/carljnicholls/cjnicholls.git",
+        "defaultBranch": "angular7",
+        "clean": "false",
+        "checkoutSubmodules": false
+    },
+    "processParameters": {},
+    "quality": 1,
+    "authoredBy": {
+        "displayName": "Carl Nicholls",
+        "url": "https://app.vssps.visualstudio.com/A8c9053df-9a88-4fde-a9b5-cf1bcc8b165c/_apis/Identities/cf9fc475-aae9-4426-bfe7-84241b613d8f",
+        "_links": {
+            "avatar": {
+                "href": "https://carljnicholls.visualstudio.com/_apis/GraphProfile/MemberAvatars/msa.ODUzNTRjNWQtZWYxMy03MWIzLTg3ZWYtYTY4NjQ5ZWUxOWM0"
+            }
+        },
+        "id": "cf9fc475-aae9-4426-bfe7-84241b613d8f",
+        "uniqueName": "carljnicholls@hotmail.com",
+        "imageUrl": "https://carljnicholls.visualstudio.com/_apis/GraphProfile/MemberAvatars/msa.ODUzNTRjNWQtZWYxMy03MWIzLTg3ZWYtYTY4NjQ5ZWUxOWM0",
+        "descriptor": "msa.ODUzNTRjNWQtZWYxMy03MWIzLTg3ZWYtYTY4NjQ5ZWUxOWM0"
+    },
+    "drafts": [],
+    "queue": {
+        "_links": {
+            "self": {
+                "href": "https://carljnicholls.visualstudio.com/_apis/build/Queues/39"
+            }
+        },
+        "id": 39,
+        "name": "Hosted VS2017",
+        "url": "https://carljnicholls.visualstudio.com/_apis/build/Queues/39",
+        "pool": {
+            "id": 4,
+            "name": "Hosted VS2017",
+            "isHosted": true
+        }
+    },
+    "id": 7,
+    "name": "cjnicholls-web-CI",
+    "url": "https://carljnicholls.visualstudio.com/1c394c32-e393-4a59-8d4d-7226a7c83404/_apis/build/Definitions/7?revision=9",
+    "uri": "vstfs:///Build/Definition/7",
+    "path": "\\",
+    "type": 2,
+    "queueStatus": 0,
+    "revision": 9,
+    "createdDate": "2019-04-27T18:18:29.637Z",
+    "project": {
+        "id": "1c394c32-e393-4a59-8d4d-7226a7c83404",
+        "name": "cjnicholls-web",
+        "description": "Personal website",
+        "url": "https://carljnicholls.visualstudio.com/_apis/projects/1c394c32-e393-4a59-8d4d-7226a7c83404",
+        "state": 1,
+        "revision": 43,
+        "visibility": 0,
+        "lastUpdateTime": "2019-04-27T09:53:31.027Z"
+    }
+}
