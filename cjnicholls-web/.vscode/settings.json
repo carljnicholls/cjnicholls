@@ -1,4 +1,5 @@
 {
+    // Workbench
     "workbench.colorCustomizations": {
         "titleBar.activeBackground": "#caafe8",
         "titleBar.inactiveBackground": "#caafe899",
@@ -8,6 +9,37 @@
         "activityBar.background": "#caafe8",
         "activityBar.foreground": "#15202b",
     },
+    "workbench.tree.indent": 16,
+    
+    // Editor
+    // Inline comments color as material theme has them low contrast 
+    "editor.tokenColorCustomizations": {
+        "textMateRules": [{
+            "scope": "comment",
+            "settings": {
+                "fontStyle": "italic",
+                "foreground": "#C69650"
+            }
+        }]
+    },
+    "editor.tabSize": 4,
+
+    // GIT
+    "git.autofetch": true,
+
+    // TypeScript
+    "[typescript]": {
+        "editor.formatOnSave": true,
+        "editor.formatOnPaste": true
+    },
+
+    // Markdown,
+    "[markdown]": {
+        "editor.formatOnSave": true,
+        "editor.renderWhitespace": "all"
+    },
+
+    // C Spell
     "cSpell.words": [
         "cjnicholls",
         "codelyzer",
