@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeModule } from './modules/home/home.module';
 import { SharedModule } from './shared/shared.module';
+import { AngularMaterialModule } from './third-party/angular-material/angular-material.module';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,13 @@ import { SharedModule } from './shared/shared.module';
   imports: [
     BrowserModule,
 
+    // Third Party
+    AngularMaterialModule,
+
+    // Shared
     SharedModule,
+
+    // Views
     HomeModule,
 
     AppRoutingModule // always last
