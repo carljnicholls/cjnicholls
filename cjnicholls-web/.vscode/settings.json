@@ -41,12 +41,16 @@
 
     // C Spell
     "cSpell.words": [
+        "Linkedin",
         "Nicholls",
         "cjnicholls",
         "codelyzer",
         "devkit",
+        "fontawesome",
+        "fortawesome",
         "jasminewd",
         "junit",
         "tslib"
-    ]
+    ],
+    "cSpell.language": "en,en-GB"
 }
