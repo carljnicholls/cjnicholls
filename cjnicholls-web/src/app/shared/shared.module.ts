@@ -1,7 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HeaderComponent } from './header/header.component';
+
 import { AngularMaterialModule } from '../third-party/angular-material/angular-material.module';
+
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
     declarations: [
@@ -9,7 +11,8 @@ import { AngularMaterialModule } from '../third-party/angular-material/angular-m
     ],
     imports: [
         CommonModule,
-        AngularMaterialModule
+
+        AngularMaterialModule,
     ],
     exports: [
         HeaderComponent

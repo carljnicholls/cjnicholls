@@ -1,31 +1,37 @@
+// Angular
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { HomeModule } from './modules/home/home.module';
-import { SharedModule } from './shared/shared.module';
+/** Third Party */
 import { AngularMaterialModule } from './third-party/angular-material/angular-material.module';
 
+/** App */
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { SharedModule } from './shared/shared.module';
+
+/** Views */
+import { HomeModule } from './modules/home/home.module';
+
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
-  imports: [
-    BrowserModule,
+    declarations: [
+        AppComponent
+    ],
+    imports: [
+        BrowserModule,
 
-    // Third Party
-    AngularMaterialModule,
+        // Third Party
+        AngularMaterialModule,
 
-    // Shared
-    SharedModule,
+        // Shared
+        SharedModule,
 
-    // Views
-    HomeModule,
+        // Views
+        HomeModule,
 
-    AppRoutingModule // always last
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+        AppRoutingModule // always last
+    ],
+    providers: [],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }
