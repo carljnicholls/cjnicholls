@@ -1,7 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HomeComponent } from './home.component';
+// Routing
 import { HomeRoutingModule } from './home-routing.module.';
+// Third Party
+import { AngularMaterialModule } from 'src/app/third-party/angular-material/angular-material.module';
+
+import { HomeComponent } from './home.component';
 
 @NgModule({
   declarations: [
@@ -9,6 +13,9 @@ import { HomeRoutingModule } from './home-routing.module.';
   ],
   imports: [
     CommonModule,
+
+    AngularMaterialModule,
+
     HomeRoutingModule
   ]
 })

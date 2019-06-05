@@ -1,11 +1,13 @@
 @import '@angular/material/prebuilt-themes/deeppurple-amber.css';
 
-body {
+html, body {
+    height: 100vh;
     margin: 0px;
 }
 
 .container {
     padding: 0em 1em;;
+    height: 100vh;
 }
 
 .title {
