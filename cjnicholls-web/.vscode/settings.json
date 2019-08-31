@@ -1,13 +1,18 @@
 {
     // Workbench
     "workbench.colorCustomizations": {
-        "titleBar.activeBackground": "#caafe8",
-        "titleBar.inactiveBackground": "#caafe899",
-        "titleBar.activeForeground": "#15202b",
-        "titleBar.inactiveForeground": "#15202b99",
-
         "activityBar.background": "#caafe8",
         "activityBar.foreground": "#15202b",
+        "activityBar.inactiveForeground": "#15202b99",
+        "activityBarBadge.background": "#ad6c32",
+        "activityBarBadge.foreground": "#e7e7e7",
+        "titleBar.activeBackground": "#b087dd",
+        "titleBar.inactiveBackground": "#b087dd99",
+        "titleBar.activeForeground": "#15202b",
+        "titleBar.inactiveForeground": "#15202b99",
+        "statusBar.background": "#b087dd",
+        "statusBarItem.hoverBackground": "#965fd2",
+        "statusBar.foreground": "#15202b"
     },
     "workbench.tree.indent": 16,
     
@@ -52,5 +57,6 @@
         "junit",
         "tslib"
     ],
-    "cSpell.language": "en,en-GB"
+    "cSpell.language": "en,en-GB",
+    "peacock.color": "#b087dd"
 }

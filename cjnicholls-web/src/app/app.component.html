@@ -1,12 +1,18 @@
 
 <div
+    class="app-content"
+    fxFlexFill
     fxLayout="column"
-    fxLayoutAlign="start stretch"
-    fxFlexFill >
+    fxLayoutAlign="start stretch">
 
     <!-- Header -->
-    <app-header></app-header>
+    <app-header class="page-header"></app-header>
 
-        <!-- Component -->
-    <router-outlet></router-outlet>
+    <!-- Page Content -->
+    <div class="page-content"
+        fxFlex 
+        fxGrow>
+            <!-- Component -->
+        <router-outlet></router-outlet>
+    </div>
 </div>
