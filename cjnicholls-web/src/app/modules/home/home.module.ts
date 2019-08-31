@@ -6,10 +6,12 @@ import { HomeRoutingModule } from './home-routing.module.';
 import { AngularMaterialModule } from 'src/app/third-party/angular-material/angular-material.module';
 
 import { HomeComponent } from './home.component';
+import { HomeBodyComponent } from './components/home-body/home-body.component';
 
 @NgModule({
   declarations: [
-    HomeComponent
+    HomeComponent,
+    HomeBodyComponent
   ],
   imports: [
     CommonModule,

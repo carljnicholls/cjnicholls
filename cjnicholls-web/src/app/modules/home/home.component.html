@@ -1,20 +1,36 @@
-<div class="container">
-    <!-- Bio - 20% Left Side -->
-    <div
-        class="bio"
-        fxLayout="row"
+<div class="container"
+    fxLayout="row"
+    fxLayout.lt-md="column"
+    fxFlexFill>
+    <!-- Bio - 30% Left Side -->
+    <div class="bio"
+        fxLayout="column"
+        fxLayout.lt-md="row"
         fxLayoutAlign="center center"
-        fxFlexFill 
-        fxFlex="20">
-        Bio
+        fxFlex="25"
+        fxFlexFill>
+            <img class="profile-photo" 
+                src="../../../assets/purple-polo-and-sunnys.jpg"
+                alt="Profile Photo"
+                draggable="false"
+                fxFlex=20
+                fxFlex.gt-md=30>
+            <div class="bio-text"
+                fxLayoutAlign="start start">
+                <p class="text"> 
+                    Human
+                    <br>
+                    Software Developer 
+                    <br> 
+                    London
+                </p>
+            </div>
     </div>
-    <!-- Content - 80% Right Side -->
-    <div 
-        class="content"
+    <!-- Content - 70% Right Side -->
+    <div class="content"
         fxLayout="row" 
         fxLayoutAlign="center stretch"
-        fxFlexFill 
-        fxFlex="80">
-        Main
+        fxFlex="75">
+        <home-body-component> </home-body-component>
     </div>
 </div>
