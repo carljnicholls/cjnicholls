@@ -1,14 +1,17 @@
 <div class="container"
     fxLayout="column"
     fxLayout.lt-md="row"
-    fxLayoutAlign="center center"
+    fxLayoutAlign="start center"
     fxFlexFill>
+        <!-- Profile Photo -->
         <img class="profile-photo" 
             src="../../../assets/purple-polo-and-sunnys.jpg"
             alt="Profile Photo"
             draggable="false"
             fxFlex=25
-            fxFlex.gt-md=30>
+            fxFlex.lt-lg=20>
+
+        <!-- Bio Text -->
         <div class="bio-text"
             fxLayoutAlign="start start">
             <p class="text"> 
@@ -20,6 +23,7 @@
             </p>
         </div>
 
+        <!-- Social Media -->
         <div class="bio-links"
             fxLayout="column"
             fxLayoutAlign="start start"
