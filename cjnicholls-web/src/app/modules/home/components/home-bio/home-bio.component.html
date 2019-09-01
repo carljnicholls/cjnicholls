@@ -1,0 +1,38 @@
+<div class="container"
+    fxLayout="column"
+    fxLayout.lt-md="row"
+    fxLayoutAlign="center center"
+    fxFlexFill>
+        <img class="profile-photo" 
+            src="../../../assets/purple-polo-and-sunnys.jpg"
+            alt="Profile Photo"
+            draggable="false"
+            fxFlex=25
+            fxFlex.gt-md=30>
+        <div class="bio-text"
+            fxLayoutAlign="start start">
+            <p class="text"> 
+                Human
+                <br>
+                Software Developer 
+                <br> 
+                London
+            </p>
+        </div>
+
+        <div class="bio-links"
+            fxLayout="column"
+            fxLayoutAlign="start start"
+            fxLayoutGap="0.5em">
+
+            <a [href]="githubUrl" target="_blank">
+                <icon-component [icon]="iconGithub" message="GitHub"></icon-component>
+            </a>
+            <a [href]="linkedInUrl" target="_blank">
+                <icon-component [icon]="iconLinkedIn" message="LinkedIn"></icon-component>
+            </a>
+            <a href="mailto:{{email}}">
+                <icon-component [icon]="iconEmail" message="Email"></icon-component>
+            </a>
+        </div>
+</div>

@@ -13,7 +13,9 @@ describe('HeaderComponent', () => {
             imports: [
                 MatToolbarModule
             ],
-            declarations: [HeaderComponent],
+            declarations: [
+                HeaderComponent
+            ],
             providers: [SharedModule]
         })
             .compileComponents();

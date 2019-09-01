@@ -28,14 +28,15 @@
         }]
     },
     "editor.tabSize": 4,
-
+    
     // GIT
     "git.autofetch": true,
 
     // TypeScript
     "[typescript]": {
         "editor.formatOnSave": true,
-        "editor.formatOnPaste": true
+        "editor.formatOnPaste": true,
+        "editor.tabSize": 4 
     },
 
     // Markdown,

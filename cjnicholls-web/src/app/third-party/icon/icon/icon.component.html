@@ -1,0 +1,18 @@
+<div class="container"
+    fxFlexFill>
+
+    <span
+        fxFlexFill
+        fxLayout="row"
+        fxLayoutAlign="start center"
+        fxLayoutGap="1em">
+
+        <fa-icon *ngIf="iconType" [icon]="iconType"></fa-icon>
+        
+        <span *ngIf="text && !iconOnly"> 
+            {{text}}
+        </span>
+
+    </span>
+
+</div>
