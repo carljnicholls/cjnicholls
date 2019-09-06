@@ -1,7 +1,7 @@
 <div class="container"
     fxLayout="column"
     fxLayout.lt-md="row"
-    fxLayoutAlign="start center"
+    fxLayoutAlign="center center"
     fxFlexFill>
         <!-- Profile Photo -->
         <img class="profile-photo" 
@@ -30,13 +30,13 @@
             fxLayoutGap="0.5em">
 
             <a [href]="githubUrl" target="_blank">
-                <icon-component [icon]="iconGithub" message="GitHub"></icon-component>
+                <icon-component [icon]="iconGithub" message="GitHub" [iconOnly]="collapseIcons"></icon-component>
             </a>
             <a [href]="linkedInUrl" target="_blank">
-                <icon-component [icon]="iconLinkedIn" message="LinkedIn"></icon-component>
+                <icon-component [icon]="iconLinkedIn" message="LinkedIn" [iconOnly]="collapseIcons"></icon-component>
             </a>
             <a href="mailto:{{email}}">
-                <icon-component [icon]="iconEmail" message="Email"></icon-component>
+                <icon-component [icon]="iconEmail" message="Email" [iconOnly]="collapseIcons"></icon-component>
             </a>
         </div>
 </div>

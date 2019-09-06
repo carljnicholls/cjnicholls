@@ -24,24 +24,11 @@
 .content:hover {
     width:100%;
     height:100%;
-    // overflow:hidden;
     
     background-color: #D2FDFE;
     overflow: auto;
 }
 
-.profile-photo {
-    border-radius: 10em;
-}
-
-.bio-text {
-    padding: 0em 0.8em;
-
-    .text {
-        font-size: 1.1em;
-        // font-weight: bold;
-    }
-}
 
 // -------------------------------------
 // ----------- Scrollbar --------------- 
