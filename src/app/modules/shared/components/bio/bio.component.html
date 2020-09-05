@@ -1,0 +1,56 @@
+<button class="close-nav-btn" mat-button (click)="onBtnClick()">
+    <fa-icon [icon]="icon"></fa-icon>
+</button>
+
+<div
+    class="content"
+    fxLayout="column"
+    fxLayout.lt-md="row"
+    fxLayoutAlign="center center"
+    fxFill>
+
+    <div>
+        <h1>Carl James Nicholls</h1>
+    </div>
+
+    <!-- Profile Photo -->
+    <img class="profile-photo"
+        src="../../../assets/purple-polo-and-sunnys.jpg"
+        alt="Profile Photo"
+        draggable="false"
+        fxFlex=25
+        fxFlex.lt-lg=20>
+
+    <div >
+
+    <!-- Bio Text -->
+    <div class="bio-text"
+        fxLayoutAlign="start start">
+        <p class="text">
+            Human
+            <br>
+            Software Developer
+            <br>
+            London
+        </p>
+    </div>
+
+    <!-- Social Media -->
+    <div class="bio-links"
+        fxLayout="row"
+        fxLayoutAlign="start start"
+        fxLayoutGap="0.5em">
+
+        <a class="icon" [href]="githubUrl" target="_blank">
+            <fa-icon [icon]="iconGithub" matTooltip="Github"> </fa-icon>
+        </a>
+        <a class="icon" [href]="linkedInUrl" target="_blank">
+            <fa-icon [icon]="iconLinkedIn" matTooltip="LinkedIn"> </fa-icon>
+        </a>
+        <a class="icon" href="mailto:{{email}}">
+            <fa-icon [icon]="iconEmail" matTooltip="Email"> </fa-icon>
+        </a>
+    </div>
+
+    </div>
+</div>

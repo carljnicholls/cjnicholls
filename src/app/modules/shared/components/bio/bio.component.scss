@@ -1,0 +1,33 @@
+.container {
+    background-color: lightyellow;
+}
+
+.profile-photo {
+    border-radius: 10em;
+}
+
+.bio-text {
+    padding-top: 1em;
+
+    .text {
+        font-size: 1.1em;
+    }
+}
+
+.icon {
+    font-size: 2em;
+}
+
+.close-nav-btn {
+    position: absolute;
+    z-index: 1000;
+}
+
+close-nav-btn:hover {
+    font-size: 10.5em;
+}
+
+
+.content {
+    padding: 1em;
+}

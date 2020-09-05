@@ -1,1 +1,13 @@
-<p>header works!</p>
+<mat-sidenav-container fxFlexFill>
+    <mat-sidenav
+        fxFlex
+        mode="side"
+        [opened]="isOpen"
+        [fixedInViewport]="true"
+        [disableClose]="true">
+            <app-bio
+                [icon]="arrowCollapse"
+                (onClick)="onBioCloseClick()">
+            </app-bio>
+    </mat-sidenav>
+</mat-sidenav-container>

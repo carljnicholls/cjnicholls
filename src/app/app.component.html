@@ -1,7 +1,13 @@
-<app-header></app-header>
+<div
+    fxFlexFill
+    fxLayoutAlign="column">
 
-<router-outlet>
-    <!-- <app-index> </app-index> -->
-</router-outlet>
+        <app-header [isOpen]="isNavOpen" [toggleVisibility]="toggleNavVisibility"></app-header>
 
-<app-footer></app-footer>
+        <button class="open-nav-btn" *ngIf="!isNavOpen" mat-button (click)="onNavOpenClick()">
+            <fa-icon [icon]="arrowOpen"></fa-icon>
+        </button>
+
+        <router-outlet> </router-outlet>
+
+</div>
