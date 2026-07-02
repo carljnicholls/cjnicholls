@@ -269,7 +269,7 @@ Max Concurrent: 6 (Wave 2)
   - Message: `chore: replace .gitignore with Node/Vue template`
   - Files: `.gitignore`
 
-- [ ] 2. Scaffold Vue 3 + Vite + TypeScript project
+- [x] 2. Scaffold Vue 3 + Vite + TypeScript project
 
   **What to do**:
   - Run `npm create vue@latest .` in project root with these flags/answers:
@@ -353,7 +353,7 @@ Max Concurrent: 6 (Wave 2)
   - Files: All scaffolded files
   - Pre-commit: `npm run test:unit`
 
-- [ ] 3. Set up Tailwind CSS v4 with dark mode
+- [x] 3. Set up Tailwind CSS v4 with dark mode
 
   **What to do**:
   - Install: `npm install tailwindcss @tailwindcss/vite`
@@ -507,7 +507,7 @@ Max Concurrent: 6 (Wave 2)
   - Message: `feat: configure Vue Router with hash history and GitHub Pages base path`
   - Files: `src/router/index.ts`, `vite.config.ts`
 
-- [ ] 5. Implement light/dark theme system
+- [x] 5. Implement light/dark theme system
 
   **What to do**:
   - Create `src/composables/useTheme.ts`:

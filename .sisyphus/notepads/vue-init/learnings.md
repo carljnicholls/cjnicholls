@@ -39,3 +39,26 @@
 - Verified: `npm run dev` → serves on localhost:5173 with `<div id="app"></div>`
 - Dev server is Vite 8.1.3 with Vue DevTools auto-integrated
 - Dependencies installed: vue ^3.5.38, vue-router ^5.1.0, vite ^8.0.16, typescript ~6.0.0, vitest ^4.1.9
+
+## Task 3 — Tailwind CSS v4 with Dark Mode
+- Installed: `tailwindcss` + `@tailwindcss/vite` (8 new packages, 0 vulnerabilities)
+- Added `import tailwindcss from '@tailwindcss/vite'` and `tailwindcss()` plugin first in plugins array
+- Replaced `src/assets/main.css` with Tailwind v4: `@import "tailwindcss"`, `@variant dark (...)`, `@theme { --color-*: }`
+- Deleted `src/assets/base.css` (old Vue scaffold CSS, replaced by Tailwind)
+- Verified no `tailwind.config.js` or `postcss.config.js` exist — v4 uses Vite plugin only
+- `npm run build` → exits 0, produces CSS (15.42 kB gzip: 3.95 kB) with Tailwind v4.3.2
+- Custom theme tokens (`--color-primary`, `--color-primary-dark`, `--color-bg-light`, `--color-bg-dark`, `--color-text-light`, `--color-text-dark`) present in compiled output
+- Dark mode works via `@variant dark (&:where(.dark, .dark *))` — class-based toggle on `<html>` element
+
+## Task 4 — useTheme Composable with Tests
+- Created `src/composables/useTheme.ts` with `theme` ref, `toggleTheme()`, localStorage persistence, system preference detection
+- Used `readonly()` on returned `theme` ref to prevent external mutation
+- Used `watch()` to sync class + persist on every theme change
+- Initialization happens in `onMounted`: localStorage > system preference > default `'light'`
+- Tests use `mount()` from `@vue/test-utils` with a wrapper component to trigger lifecycle hooks
+- `localStorage` is NOT available in jsdom/vitest by default — must mock with `vi.stubGlobal('localStorage', ...)`
+- `window.matchMedia` is NOT available in jsdom — must mock with `vi.stubGlobal('matchMedia', ...)`
+- `Watch` callbacks fire asynchronously (next tick) — persistence assertions need `await nextTick()`
+- `vi.unstubAllGlobals()` in `afterEach` for proper cleanup
+- Deleted scaffold `HelloWorld.spec.ts` (replaced with useTheme tests)
+- 4 tests: default light, localStorage read, toggle, persist — all passing
