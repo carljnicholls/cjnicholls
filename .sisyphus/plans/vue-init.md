@@ -1116,7 +1116,7 @@ Max Concurrent: 6 (Wave 2)
   - Message: `feat: add ContactView with Formspree-powered contact form`
   - Files: `src/views/ContactView.vue`, `src/views/__tests__/ContactView.spec.ts`
 
-- [ ] 12. Wire up App.vue root layout
+- [x] 12. Wire up App.vue root layout
 
   **What to do**:
   - Edit `src/App.vue`:
@@ -1205,7 +1205,7 @@ Max Concurrent: 6 (Wave 2)
   - Files: `src/App.vue`, `src/__tests__/App.spec.ts`
   - Pre-commit: `npm run test:unit`
 
-- [ ] 13. Set up GitHub Actions deployment workflow
+- [x] 13. Set up GitHub Actions deployment workflow
 
   **What to do**:
   - Create `.github/workflows/deploy.yml`:
