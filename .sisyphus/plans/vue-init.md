@@ -444,7 +444,7 @@ Max Concurrent: 6 (Wave 2)
   - Files: `vite.config.ts`, `src/assets/main.css`, `package.json`
   - Pre-commit: `npm run build`
 
-- [ ] 4. Configure Vue Router with hash history
+- [x] 4. Configure Vue Router with hash history
 
   **What to do**:
   - In `src/router/index.ts`: change `createWebHistory()` to `createWebHashHistory()`

@@ -18,6 +18,10 @@
 
 ## Gotchas
 - `createWebHistory()` breaks on GitHub Pages — must use `createWebHashHistory()`
+- Vite `base` path MUST be set in `vite.config.ts` (not in router config) — `base: '/cjnicholls/'`
+- Hash history doesn't need `import.meta.env.BASE_URL` parameter — just `createWebHashHistory()` with no args
+- When adding a new route referencing a view that doesn't exist yet, the build fails with `UNLOADABLE_DEPENDENCY` — you need at least a minimal stub file
+- `vue-tsc` type-checks before build; if the view file is missing, both type-check and build fail
 - Tailwind v4 DOES NOT use `tailwind.config.js` or `postcss.config.js`
 - Formspree redirects by default — must use `fetch()` with `{headers: {Accept: 'application/json'}}` to stay on page
 
@@ -39,6 +43,18 @@
 - Verified: `npm run dev` → serves on localhost:5173 with `<div id="app"></div>`
 - Dev server is Vite 8.1.3 with Vue DevTools auto-integrated
 - Dependencies installed: vue ^3.5.38, vue-router ^5.1.0, vite ^8.0.16, typescript ~6.0.0, vitest ^4.1.9
+
+## Task 6 — Vue Router + Vite Base Path for GitHub Pages
+- Changed `createWebHistory()` → `createWebHashHistory()` in `src/router/index.ts`
+- Removed `import.meta.env.BASE_URL` parameter from `createWebHistory()` — hash mode doesn't need it
+- Changed HomeView from eager import to lazy `() => import(...)`
+- Removed `/about` route and AboutView import; added `/contact` route with lazy ContactView
+- Added `base: '/cjnicholls/'` to `vite.config.ts` — places all built assets under `/cjnicholls/` prefix
+- Deleted `src/views/AboutView.vue` (replaced by ContactView)
+- Created minimal `src/views/ContactView.vue` stub so build succeeds (real implementation in Task 9)
+- Build output verified: `dist/index.html` contains `src="/cjnicholls/assets/index-XXXX.js"`
+- `npm run build` succeeds with 42 modules transformed, all chunks generated correctly
+- Note: the stub view was needed even though task says "don't create actual views yet" — router import requires the file to exist
 
 ## Task 3 — Tailwind CSS v4 with Dark Mode
 - Installed: `tailwindcss` + `@tailwindcss/vite` (8 new packages, 0 vulnerabilities)
