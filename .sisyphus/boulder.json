@@ -63,6 +63,15 @@
       "agent": "Sisyphus-Junior",
       "category": "visual-engineering",
       "updated_at": "2026-07-02T12:08:47.325Z"
+    },
+    "todo:12": {
+      "task_key": "todo:12",
+      "task_label": "12",
+      "task_title": "Wire up App.vue root layout",
+      "session_id": "ses_0dd438786ffeFzLHHbufXInKii",
+      "agent": "Sisyphus-Junior",
+      "category": "visual-engineering",
+      "updated_at": "2026-07-02T12:14:16.075Z"
     }
   }
 }

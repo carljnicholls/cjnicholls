@@ -681,7 +681,7 @@ Max Concurrent: 6 (Wave 2)
   - Files: `src/components/AppNavbar.vue`, `src/components/__tests__/AppNavbar.spec.ts`
   - Pre-commit: `npm run test:unit`
 
-- [ ] 7. Build ThemeToggle component
+- [x] 7. Build ThemeToggle component
 
   **What to do**:
   - Write test FIRST (`src/components/__tests__/ThemeToggle.spec.ts`):
@@ -752,7 +752,7 @@ Max Concurrent: 6 (Wave 2)
   - Files: `src/components/ThemeToggle.vue`, `src/components/__tests__/ThemeToggle.spec.ts`
   - Pre-commit: `npm run test:unit`
 
-- [ ] 8. Build HomeView — hero section
+- [x] 8. Build HomeView — hero section
 
   **What to do**:
   - Write test FIRST (`src/views/__tests__/HomeView.spec.ts`):
@@ -835,7 +835,7 @@ Max Concurrent: 6 (Wave 2)
   - Message: `feat: add HomeView hero section with responsive typography`
   - Files: `src/views/HomeView.vue`, `src/views/__tests__/HomeView.spec.ts`
 
-- [ ] 9. Build HomeView — about + links sections
+- [x] 9. Build HomeView — about + links sections
 
   **What to do**:
   - Add tests to `src/views/__tests__/HomeView.spec.ts`:
@@ -921,7 +921,7 @@ Max Concurrent: 6 (Wave 2)
   - Message: `feat: add about and social links sections to HomeView`
   - Files: `src/views/HomeView.vue`, `src/views/__tests__/HomeView.spec.ts`
 
-- [ ] 10. Build HomeView — skills section
+- [x] 10. Build HomeView — skills section
 
   **What to do**:
   - Add tests to `src/views/__tests__/HomeView.spec.ts`:
