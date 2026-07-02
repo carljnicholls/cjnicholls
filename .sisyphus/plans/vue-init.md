@@ -1002,7 +1002,7 @@ Max Concurrent: 6 (Wave 2)
   - Message: `feat: add skills section with tag grid to HomeView`
   - Files: `src/views/HomeView.vue`, `src/views/__tests__/HomeView.spec.ts`
 
-- [ ] 11. Build ContactView with Formspree form
+- [x] 11. Build ContactView with Formspree form
 
   **What to do**:
   - Write test FIRST (`src/views/__tests__/ContactView.spec.ts`):
