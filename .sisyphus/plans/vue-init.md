@@ -587,7 +587,7 @@ Max Concurrent: 6 (Wave 2)
   - Files: `src/composables/useTheme.ts`, `src/components/__tests__/useTheme.spec.ts`
   - Pre-commit: `npm run test:unit`
 
-- [ ] 6. Build AppNavbar component (responsive, with theme toggle slot)
+- [x] 6. Build AppNavbar component (responsive, with theme toggle slot)
 
   **What to do**:
   - Write test FIRST (`src/components/__tests__/AppNavbar.spec.ts`):
