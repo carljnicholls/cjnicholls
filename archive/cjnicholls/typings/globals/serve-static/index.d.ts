@@ -13,7 +13,7 @@ declare module "serve-static" {
     import * as m from "mime";
 
     namespace serveStatic {
-        var mime: typeof m;
+        let mime: typeof m;
         interface ServeStaticOptions {
             /**
              * Set how "dotfiles" are treated when encountered. A dotfile is a file or directory that begins with a dot (".").

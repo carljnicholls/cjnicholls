@@ -1284,7 +1284,7 @@ Max Concurrent: 6 (Wave 2)
   - Message: `ci: add GitHub Actions workflow for GitHub Pages deployment`
   - Files: `.github/workflows/deploy.yml`
 
-- [ ] 14. Build verification and local deploy test
+- [x] 14. Build verification and local deploy test
 
   **What to do**:
   - Run final production build: `npm run build`

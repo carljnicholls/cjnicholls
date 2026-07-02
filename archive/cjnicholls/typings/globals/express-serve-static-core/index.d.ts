@@ -789,7 +789,7 @@ declare module "express-serve-static-core" {
             *  - `cache`     boolean hinting to the engine it should cache
             *  - `filename`  filename of the view being rendered
             */
-        render(view: string, options?: Object, callback?: (err: Error, html: string) => void): void;
+        render(view: string, options?: object, callback?: (err: Error, html: string) => void): void;
         render(view: string, callback?: (err: Error, html: string) => void): void;
 
         locals: any;
@@ -995,7 +995,7 @@ declare module "express-serve-static-core" {
             * @param options or fn
             * @param fn
             */
-        render(name: string, options?: Object, callback?: (err: Error, html: string) => void): void;
+        render(name: string, options?: object, callback?: (err: Error, html: string) => void): void;
         render(name: string, callback: (err: Error, html: string) => void): void;
 
 

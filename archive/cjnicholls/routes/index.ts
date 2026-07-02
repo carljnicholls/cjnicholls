@@ -5,7 +5,7 @@ const router = express.Router();
  * GET home page.
  */
 router.get('/', (req: express.Request, res: express.Response) => {
-    var contact = {
+    const contact = {
         Email: 'mailto:carljnicholls@hotmail.com',
         GitHub: 'https://github.com/carljnicholls',
         LinkedIn: 'https://linkedin.com/in/carl-nicholls',
@@ -27,7 +27,7 @@ router.get('/', (req: express.Request, res: express.Response) => {
  * GET reading list.
  */
 router.get('/readinglist', (req: express.Request, res: express.Response) => {
-    var resources = {
+    const resources = {
         'Practical Color Theory for People Who Code': 'https://tallys.github.io/color-theory/',
         'Live CO2 emissions of Electricity Consumption': 'https://www.electricitymap.org/?wind=true&solar=true&page=map',
         'Why is .NET reflection slow?': 'http://mattwarren.org/2016/12/14/Why-is-Reflection-slow/',

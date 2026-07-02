@@ -3,7 +3,7 @@ import { mount } from '@vue/test-utils'
 import { ref, type Ref } from 'vue'
 
 const themeRef: Ref<'light' | 'dark'> = ref('light')
-const toggleThemeMock = vi.fn()
+const toggleThemeMock = vi.fn<() => void>()
 
 vi.mock('@/composables/useTheme', () => ({
   useTheme: () => ({

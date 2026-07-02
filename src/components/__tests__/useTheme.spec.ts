@@ -18,19 +18,19 @@ function mountUseTheme() {
 function createLocalStorageMock() {
   const store: Record<string, string> = {}
   return {
-    getItem: vi.fn((key: string) => store[key] ?? null),
-    setItem: vi.fn((key: string, value: string) => {
+    getItem: vi.fn<(key: string) => string | null>((key: string) => store[key] ?? null),
+    setItem: vi.fn<(key: string, value: string) => void>((key: string, value: string) => {
       store[key] = value
     }),
-    removeItem: vi.fn((key: string) => {
+    removeItem: vi.fn<(key: string) => void>((key: string) => {
       delete store[key]
     }),
-    clear: vi.fn(() => {
+    clear: vi.fn<() => void>(() => {
       for (const key of Object.keys(store)) {
         delete store[key]
       }
     }),
-    key: vi.fn((index: number) => Object.keys(store)[index] ?? null),
+    key: vi.fn<(index: number) => string | null>((index: number) => Object.keys(store)[index] ?? null),
     get length() {
       return Object.keys(store).length
     },
@@ -42,16 +42,16 @@ describe('useTheme', () => {
     document.documentElement.classList.remove('dark')
     vi.stubGlobal(
       'matchMedia',
-      vi.fn().mockImplementation((query: string) => ({
+      vi.fn<(query: string) => MediaQueryList>().mockImplementation((query: string) => ({
         matches: false,
         media: query,
         onchange: null,
-        addListener: vi.fn(),
-        removeListener: vi.fn(),
-        addEventListener: vi.fn(),
-        removeEventListener: vi.fn(),
-        dispatchEvent: vi.fn(),
-      })),
+        addListener: vi.fn<(callback: ((this: MediaQueryList, ev: MediaQueryListEvent) => void) | null) => void>(),
+        removeListener: vi.fn<(callback: ((this: MediaQueryList, ev: MediaQueryListEvent) => void) | null) => void>(),
+        addEventListener: vi.fn<(type: string, callback: EventListenerOrEventListenerObject | null, options?: boolean | AddEventListenerOptions) => void>(),
+        removeEventListener: vi.fn<(type: string, callback: EventListenerOrEventListenerObject | null, options?: boolean | EventListenerOptions) => void>(),
+        dispatchEvent: vi.fn<(event: Event) => boolean>(),
+      })) as unknown as (query: string) => MediaQueryList,
     )
     vi.stubGlobal('localStorage', createLocalStorageMock())
   })

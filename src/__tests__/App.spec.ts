@@ -8,7 +8,7 @@ const mockTheme: Ref<'light' | 'dark'> = ref('light')
 vi.mock('@/composables/useTheme', () => ({
   useTheme: () => ({
     theme: mockTheme,
-    toggleTheme: vi.fn(),
+    toggleTheme: vi.fn<() => void>(),
   }),
 }))
 
