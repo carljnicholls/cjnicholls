@@ -90,7 +90,7 @@ async function submitForm(event: Event) {
       <button
         type="submit"
         :disabled="state === 'submitting'"
-        class="bg-primary text-white px-6 py-3 rounded-lg hover:opacity-90 disabled:opacity-50 transition-opacity"
+        class="bg-primary text-white px-6 py-4 min-h-[44px] rounded-lg hover:opacity-90 disabled:opacity-50 transition-opacity"
       >
         {{ state === 'submitting' ? 'Sending...' : 'Send' }}
       </button>

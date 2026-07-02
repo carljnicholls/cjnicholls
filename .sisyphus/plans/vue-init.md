@@ -1361,7 +1361,7 @@ Max Concurrent: 6 (Wave 2)
 
   **Commit**: NO — verification only, no code changes
 
-- [ ] 15. Mobile responsiveness audit
+- [x] 15. Mobile responsiveness audit
 
   **What to do**:
   - Test on 3 breakpoints using Playwright:

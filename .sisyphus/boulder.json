@@ -81,6 +81,15 @@
       "agent": "Sisyphus-Junior",
       "category": "quick",
       "updated_at": "2026-07-02T12:30:38.291Z"
+    },
+    "todo:15": {
+      "task_key": "todo:15",
+      "task_label": "15",
+      "task_title": "Mobile responsiveness audit",
+      "session_id": "ses_0dd295a95ffetvNzXsEPjVuYmq",
+      "agent": "Sisyphus-Junior",
+      "category": "quick",
+      "updated_at": "2026-07-02T12:39:08.891Z"
     }
   }
 }
