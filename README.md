@@ -1,54 +1,48 @@
-# vue-scaffold
+# cjnicholls
 
-This template should help get you started developing with Vue 3 in Vite.
+Personal portfolio site — Vue 3 + Vite + TypeScript + Tailwind CSS v4.
 
-## Recommended IDE Setup
-
-[VS Code](https://code.visualstudio.com/) + [Vue (Official)](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
-
-## Recommended Browser Setup
-
-- Chromium-based browsers (Chrome, Edge, Brave, etc.):
-  - [Vue.js devtools](https://chromewebstore.google.com/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd)
-  - [Turn on Custom Object Formatter in Chrome DevTools](http://bit.ly/object-formatters)
-- Firefox:
-  - [Vue.js devtools](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
-  - [Turn on Custom Object Formatter in Firefox DevTools](https://fxdx.dev/firefox-devtools-custom-object-formatters/)
-
-## Type Support for `.vue` Imports in TS
-
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vite.dev/config/).
-
-## Project Setup
+## Setup
 
 ```sh
 npm install
 ```
 
-### Compile and Hot-Reload for Development
+## Development
 
 ```sh
-npm run dev
+npm run dev        # dev server with hot reload
+npm run build      # type-check + production build
+npm run test:unit  # run tests (vitest)
+npm run lint       # lint (oxlint + eslint)
+npm run format     # format code (prettier)
 ```
 
-### Type-Check, Compile and Minify for Production
+## Image processing
+
+Source images live in `public/<name>/`. To generate responsive variants (WebP/AVIF/JPEG at multiple widths):
 
 ```sh
-npm run build
+# Default: WebP at 400w, 800w, 1200w, quality 80
+npm run images -- --dir public/corgi
+
+# Custom sizes, format, quality
+npm run images -- --dir public/photos --sizes 300,600,1200 --format avif --quality 85
 ```
 
-### Run Unit Tests with [Vitest](https://vitest.dev/)
+Generated variants are named `<base>-<width>w.<ext>` and placed alongside the source images. Files with a hyphen in the name are skipped (so generated variants aren't re-processed).
 
-```sh
-npm run test:unit
-```
+| Option | Default | Description |
+|--------|---------|-------------|
+| `--dir` | *(required)* | Directory under `public/` with source images |
+| `--sizes` | `400,800,1200` | Output widths (comma-separated px) |
+| `--format` | `webp` | Output format: `webp`, `avif`, `jpeg`, `jpg`, `png` |
+| `--quality` | `80` | Output quality (1–100) |
 
-### Lint with [ESLint](https://eslint.org/)
+## Tech stack
 
-```sh
-npm run lint
-```
+- Vue 3.5, Vite 8, TypeScript ~6.0
+- Tailwind CSS v4 (Vite plugin)
+- Vue Router v5 (hash mode, for GitHub Pages)
+- sharp for image processing
+- Vitest, oxlint, ESLint, Prettier

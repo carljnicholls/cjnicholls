@@ -12,7 +12,31 @@ npm run lint          # oxlint then eslint (sequential)
 npm run format        # prettier on src/
 npm run type-check    # vue-tsc --build only
 npm run build-only    # vite build only (skip types)
+npm run images        # generate responsive image variants (see Image processing below)
 ```
+
+## Image processing
+
+`scripts/generate-images.mjs` uses [sharp](https://sharp.pixelplumbing.com/) to generate responsive image variants from source images in `public/`. Source images go in `public/<name>/`; generated variants land in the same directory.
+
+```sh
+# Default: WebP at 400w,800w,1200w with quality 80
+npm run images -- --dir public/corgi
+
+# Custom sizes, format, quality
+npm run images -- --dir public/photos --sizes 300,600,1200,2400 --format avif --quality 85
+```
+
+**Options:**
+
+| Option | Default | Description |
+|--------|---------|-------------|
+| `--dir` | *(required)* | Directory under `public/` containing source images |
+| `--sizes` | `400,800,1200` | Comma-separated widths in px |
+| `--format` | `webp` | Output format: `webp`, `avif`, `jpeg`, `jpg`, `png` |
+| `--quality` | `80` | Output quality (1–100) |
+
+**Convention**: Source images are `.jpg`, `.jpeg`, or `.png` files **without a hyphen** in the name. Generated variants are named `<base>-<width>w.<ext>` (e.g. `corgi_judge-800w.webp`). Files with hyphens are skipped — this prevents regenerating variants from already-generated files.
 
 ## Architecture
 
@@ -29,13 +53,14 @@ src/
 │   └── icons/           # SVG icon components (scaffold artifacts, may be unused)
 ├── views/               # route-level pages
 │   ├── HomeView.vue     # "/" — placeholder content
-│   └── ContactView.vue  # "/contact" — Formspree form
+│   ├── ContactView.vue  # "/contact" — Formspree form
+│   └── CorgiView.vue    # "/corgi" — random corgi image with responsive srcset
 ├── assets/
 │   └── main.css         # Tailwind v4 import + custom @theme tokens + dark variant
 └── __tests__/           # co-located: components/__tests__/, views/__tests__/
 ```
 
-**Routes**: 2 lazy-loaded routes — `/` (home) and `/contact` (contact). Both use named routes.
+**Routes**: 3 lazy-loaded routes — `/` (home), `/contact` (contact), and `/corgi` (corgi). All use named routes.
 
 **No Pinia**. State lives in composables (currently only `useTheme`). Add composables to `src/composables/` for new shared state.
 

@@ -39,6 +39,13 @@ function closeMobile() {
         >
           Contact
         </RouterLink>
+        <RouterLink
+          :to="{ name: 'corgi' }"
+          active-class="text-primary font-medium border-b-2 border-primary"
+          class="text-gray-700 dark:text-gray-200 hover:text-primary dark:hover:text-primary-dark transition-colors"
+        >
+          Corgi
+        </RouterLink>
         <slot name="theme-toggle" />
       </div>
 
@@ -70,6 +77,14 @@ function closeMobile() {
         @click="closeMobile"
       >
         Contact
+      </RouterLink>
+      <RouterLink
+        :to="{ name: 'corgi' }"
+        active-class="text-primary font-medium border-b-2 border-primary"
+        class="text-gray-700 dark:text-gray-200 hover:text-primary dark:hover:text-primary-dark transition-colors"
+        @click="closeMobile"
+      >
+        Corgi
       </RouterLink>
       <slot name="theme-toggle" />
     </div>

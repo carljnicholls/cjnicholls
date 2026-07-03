@@ -13,6 +13,11 @@ const router = createRouter({
       name: 'contact',
       component: () => import('@/views/ContactView.vue'),
     },
+    {
+      path: '/corgi',
+      name: 'corgi',
+      component: () => import('@/views/CorgiView.vue'),
+    },
   ],
 })
 
