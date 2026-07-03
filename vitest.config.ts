@@ -25,6 +25,7 @@ export default mergeConfig(
           'src/**/__tests__/**',
           'src/**/*.spec.ts',
           'src/main.ts',
+          'src/components/icons/**',
         ],
       },
       env: {
