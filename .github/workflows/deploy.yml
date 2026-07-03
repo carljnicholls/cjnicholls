@@ -36,7 +36,12 @@ jobs:
           thresholds: "20 50"
       - name: Append coverage to job summary
         if: always()
-        run: cat code-coverage-results.md >> $GITHUB_STEP_SUMMARY
+        run: |
+          if [ -f code-coverage-results.md ]; then
+            cat code-coverage-results.md >> $GITHUB_STEP_SUMMARY
+          else
+            echo "⚠️ No coverage results file found" >> $GITHUB_STEP_SUMMARY
+          fi
       - name: Upload test results
         if: always()
         uses: actions/upload-artifact@v4
