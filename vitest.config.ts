@@ -2,6 +2,10 @@ import { fileURLToPath } from 'node:url'
 import { mergeConfig, defineConfig, configDefaults } from 'vitest/config'
 import viteConfig from './vite.config'
 
+const ciReporters: ('junit' | 'default')[] = process.env.CI
+  ? ['junit', 'default']
+  : ['default']
+
 export default mergeConfig(
   viteConfig,
   defineConfig({
@@ -9,6 +13,20 @@ export default mergeConfig(
       environment: 'jsdom',
       exclude: [...configDefaults.exclude, 'e2e/**'],
       root: fileURLToPath(new URL('./', import.meta.url)),
+      reporters: ciReporters,
+      outputFile: process.env.CI ? 'reports/junit.xml' : undefined,
+      coverage: {
+        provider: 'v8',
+        reporter: ['text', 'cobertura', 'html'],
+        reportsDirectory: './coverage',
+        include: ['src/**/*.{ts,vue}'],
+        exclude: [
+          'src/__tests__/**',
+          'src/**/__tests__/**',
+          'src/**/*.spec.ts',
+          'src/main.ts',
+        ],
+      },
       env: {
         VITE_FORMSPREE_URL: 'https://formspree.io/f/[FORMSPREE_FORM_ID]',
         VITE_EMAIL_ADDRESS: 'test@example.com',
