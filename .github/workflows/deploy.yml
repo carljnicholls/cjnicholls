@@ -53,6 +53,12 @@ jobs:
 
   build:
     runs-on: ubuntu-latest
+    env:
+      VITE_EMAIL_ADDRESS: carljnicholls@hotmail.com
+      VITE_GITHUB: https://github.com/carljnicholls
+      VITE_LINKEDIN: https://www.linkedin.com/in/carljnicholls/
+      VITE_SKILLS: TypeScript, Vue 3, Tailwind CSS, CI/CD, REST API, Nomad, Fastify, Bruno, Event-driven architecture, OpenAPI, Nuxt, Postgres, MQTT
+      VITE_FORMSPREE_URL: https://formspree.io/f/your-form-id
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -88,7 +94,6 @@ jobs:
     permissions:
       contents: write
     steps:
-      - uses: actions/checkout@v4
       - uses: actions/download-artifact@v4
         with:
           name: dist

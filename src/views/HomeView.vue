@@ -10,7 +10,7 @@ const GITHUB = import.meta.env.VITE_GITHUB
 const LINKEDIN = import.meta.env.VITE_LINKEDIN
 
 const skills = ref(
-    import.meta.env.VITE_SKILLS.split(',').map((s: string) => s.trim()),
+    (import.meta.env.VITE_SKILLS || '').split(',').map((s: string) => s.trim()).filter(Boolean),
 )
 
 /** Maximum visible rows when skills are collapsed. Increase to show more rows by default. */
