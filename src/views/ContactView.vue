@@ -46,7 +46,7 @@ async function submitForm(event: Event) {
 
     <!-- Error state -->
     <div v-else-if="state === 'error'" class="p-4 rounded-lg bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200">
-      Something went wrong. Please try again or Email me at <a :href="`mailto:${EMAIL_ADDRESS}`">{EMAIL_ADDRESS}</a>.
+      Something went wrong. Please try again or Email me at <a :href="`mailto:${EMAIL_ADDRESS}`">{{ EMAIL_ADDRESS }}</a>.
     </div>
 
     <!-- Form (idle + submitting) -->

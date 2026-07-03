@@ -63,7 +63,7 @@ describe('ContactView', () => {
     await form.trigger('submit')
     await flushPromises()
 
-    expect(wrapper.text()).toContain('Something went wrong. Please try again.')
+    expect(wrapper.text()).toContain('Something went wrong. Please try again')
     expect(wrapper.find('form').exists()).toBe(false)
   })
 })
