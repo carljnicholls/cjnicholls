@@ -9,6 +9,9 @@ export default mergeConfig(
       environment: 'jsdom',
       exclude: [...configDefaults.exclude, 'e2e/**'],
       root: fileURLToPath(new URL('./', import.meta.url)),
+      env: {
+        VITE_FORMSPREE_URL: 'https://formspree.io/f/[FORMSPREE_FORM_ID]',
+      },
     },
   }),
 )
