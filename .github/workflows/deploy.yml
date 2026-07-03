@@ -7,6 +7,8 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
+    permissions:
+      checks: write
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -17,6 +19,21 @@ jobs:
       - run: npm run lint
       - name: Run tests with coverage
         run: npm run test:coverage
+      - name: Publish test results
+        if: always()
+        uses: dorny/test-reporter@v2
+        with:
+          name: Unit Tests
+          path: reports/junit.xml
+          reporter: java-junit
+      - name: Report coverage summary
+        if: always()
+        uses: irongut/CodeCoverageSummary@v1.3.0
+        with:
+          filename: coverage/cobertura-coverage.xml
+          format: markdown
+          output: step_summary
+          thresholds: "20 50"
       - name: Upload test results
         if: always()
         uses: actions/upload-artifact@v4
@@ -25,13 +42,6 @@ jobs:
           path: |
             reports/junit.xml
             coverage/
-      - name: Report coverage summary
-        uses: irongut/CodeCoverageSummary@v1.3.0
-        with:
-          filename: coverage/cobertura-coverage.xml
-          format: markdown
-          output: both
-          thresholds: "20 50"
 
   build:
     runs-on: ubuntu-latest
