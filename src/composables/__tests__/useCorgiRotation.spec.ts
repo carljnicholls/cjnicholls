@@ -19,19 +19,19 @@ function mountUseCorgiRotation(images: readonly string[] = IMAGES) {
 function createLocalStorageMock() {
   const store: Record<string, string> = {}
   return {
-    getItem: vi.fn((key: string) => store[key] ?? null),
-    setItem: vi.fn((key: string, value: string) => {
+    getItem: vi.fn<(key: string) => string | null>((key: string) => store[key] ?? null),
+    setItem: vi.fn<(key: string, value: string) => void>((key: string, value: string) => {
       store[key] = value
     }),
-    removeItem: vi.fn((key: string) => {
+    removeItem: vi.fn<(key: string) => void>((key: string) => {
       delete store[key]
     }),
-    clear: vi.fn(() => {
+    clear: vi.fn<() => void>(() => {
       for (const key of Object.keys(store)) {
         delete store[key]
       }
     }),
-    key: vi.fn((index: number) => Object.keys(store)[index] ?? null),
+    key: vi.fn<(index: number) => string | null>((index: number) => Object.keys(store)[index] ?? null),
     get length() {
       return Object.keys(store).length
     },
@@ -180,8 +180,8 @@ describe('useCorgiRotation', () => {
         getItem: () => {
           throw new Error('quota exceeded')
         },
-        setItem: vi.fn(),
-        removeItem: vi.fn(),
+        setItem: vi.fn<() => void>(),
+        removeItem: vi.fn<() => void>(),
       })
 
       expect(() => mountUseCorgiRotation()).not.toThrow()

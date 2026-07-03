@@ -4,7 +4,7 @@ import { ref, computed, type Ref, type ComputedRef } from 'vue'
 
 const mockCurrent = ref('corgi_judge')
 const mockHasSeenAll = ref(false)
-const mockShuffle = vi.fn()
+const mockShuffle = vi.fn<() => void>()
 
 vi.mock('@/composables/useCorgiRotation', () => ({
   useCorgiRotation: () => ({
