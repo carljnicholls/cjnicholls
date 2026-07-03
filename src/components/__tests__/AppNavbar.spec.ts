@@ -9,6 +9,7 @@ function createTestRouter() {
     routes: [
       { path: '/', name: 'home', component: { template: '<div>Home</div>' } },
       { path: '/contact', name: 'contact', component: { template: '<div>Contact</div>' } },
+      { path: '/corgi', name: 'corgi', component: { template: '<div>Corgi</div>' } },
     ],
   })
 }

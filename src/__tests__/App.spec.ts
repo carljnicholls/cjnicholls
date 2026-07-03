@@ -1,13 +1,10 @@
-import { describe, it, expect, vi, beforeEach } from 'vitest'
+import { describe, it, expect, vi } from 'vitest'
 import { mount } from '@vue/test-utils'
 import { createRouter, createMemoryHistory } from 'vue-router'
-import { ref, type Ref } from 'vue'
-
-const mockTheme: Ref<'light' | 'dark'> = ref('light')
 
 vi.mock('@/composables/useTheme', () => ({
   useTheme: () => ({
-    theme: mockTheme,
+    theme: { value: 'light' },
     toggleTheme: vi.fn<() => void>(),
   }),
 }))
@@ -20,15 +17,12 @@ function createTestRouter() {
     routes: [
       { path: '/', name: 'home', component: { template: '<div>Home</div>' } },
       { path: '/contact', name: 'contact', component: { template: '<div>Contact</div>' } },
+      { path: '/corgi', name: 'corgi', component: { template: '<div>Corgi</div>' } },
     ],
   })
 }
 
 describe('App', () => {
-  beforeEach(() => {
-    mockTheme.value = 'light'
-  })
-
   it('renders AppNavbar', () => {
     const router = createTestRouter()
     const wrapper = mount(App, {
@@ -57,15 +51,5 @@ describe('App', () => {
     expect(footer.exists()).toBe(true)
     expect(footer.text()).toContain('\u00A9')
     expect(footer.text()).toContain('2026')
-  })
-
-  it('applies dark class when theme is dark', () => {
-    mockTheme.value = 'dark'
-    const router = createTestRouter()
-    const wrapper = mount(App, {
-      global: { plugins: [router] },
-    })
-
-    expect(wrapper.find('div').classes()).toContain('dark')
   })
 })

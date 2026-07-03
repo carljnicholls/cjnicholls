@@ -1,9 +1,9 @@
 import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest'
 import { nextTick } from 'vue'
 import { mount } from '@vue/test-utils'
-import { useTheme } from '../../composables/useTheme'
 
-function mountUseTheme() {
+async function mountUseTheme() {
+  const { useTheme } = await import('../../composables/useTheme')
   let result: ReturnType<typeof useTheme> | undefined
   mount({
     template: '<div></div>',
@@ -39,6 +39,7 @@ function createLocalStorageMock() {
 
 describe('useTheme', () => {
   beforeEach(() => {
+    vi.resetModules()
     document.documentElement.classList.remove('dark')
     vi.stubGlobal(
       'matchMedia',
@@ -60,21 +61,21 @@ describe('useTheme', () => {
     vi.unstubAllGlobals()
   })
 
-  it('returns light as default when no localStorage and system prefers light', () => {
-    const { theme } = mountUseTheme()
+  it('returns light as default when no localStorage and system prefers light', async () => {
+    const { theme } = await mountUseTheme()
     expect(theme.value).toBe('light')
     expect(document.documentElement.classList.contains('dark')).toBe(false)
   })
 
-  it('reads from localStorage if set', () => {
+  it('reads from localStorage if set', async () => {
     localStorage.setItem('theme', 'dark')
-    const { theme } = mountUseTheme()
+    const { theme } = await mountUseTheme()
     expect(theme.value).toBe('dark')
     expect(document.documentElement.classList.contains('dark')).toBe(true)
   })
 
-  it('toggleTheme switches from light to dark', () => {
-    const { theme, toggleTheme } = mountUseTheme()
+  it('toggleTheme switches from light to dark', async () => {
+    const { theme, toggleTheme } = await mountUseTheme()
     expect(theme.value).toBe('light')
     toggleTheme()
     expect(theme.value).toBe('dark')
@@ -83,7 +84,7 @@ describe('useTheme', () => {
   })
 
   it('toggleTheme persists to localStorage', async () => {
-    const { theme, toggleTheme } = mountUseTheme()
+    const { theme, toggleTheme } = await mountUseTheme()
     expect(theme.value).toBe('light')
     toggleTheme()
     await nextTick()

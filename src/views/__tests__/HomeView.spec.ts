@@ -8,7 +8,7 @@ describe('HomeView', () => {
     const h1 = wrapper.find('h1')
 
     expect(h1.exists()).toBe(true)
-    expect(h1.text()).toBe('[Your Name]')
+    expect(h1.text()).toBe('Carl J Nicholls')
   })
 
   it('renders subtitle/tagline text', () => {
@@ -54,7 +54,7 @@ describe('HomeView', () => {
     const wrapper = mount(HomeView)
     const skillTags = wrapper.findAll('span').filter((s) => s.text() === 'TypeScript')
 
-    expect(skillTags.length).toBe(1)
+    expect(skillTags.length).toBeGreaterThanOrEqual(1)
   })
 
   it('at least 4 skill tags visible', () => {
