@@ -11,6 +11,10 @@ export default mergeConfig(
       root: fileURLToPath(new URL('./', import.meta.url)),
       env: {
         VITE_FORMSPREE_URL: 'https://formspree.io/f/[FORMSPREE_FORM_ID]',
+        VITE_EMAIL_ADDRESS: 'test@example.com',
+        VITE_GITHUB: 'https://github.com/test',
+        VITE_LINKEDIN: 'https://www.linkedin.com/in/test/',
+        VITE_SKILLS: 'TypeScript, Vue 3, Tailwind CSS, Git, GitHub Actions, REST APIs',
       },
     },
   }),
