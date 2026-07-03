@@ -32,8 +32,11 @@ jobs:
         with:
           filename: coverage/cobertura-coverage.xml
           format: markdown
-          output: step_summary
+          output: file
           thresholds: "20 50"
+      - name: Append coverage to job summary
+        if: always()
+        run: cat code-coverage-results.md >> $GITHUB_STEP_SUMMARY
       - name: Upload test results
         if: always()
         uses: actions/upload-artifact@v4
