@@ -3,6 +3,7 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches: [2026-rewrite]
+  workflow_dispatch:
 
 jobs:
   test:
@@ -89,6 +90,7 @@ jobs:
           path: reports/bundle-analysis.html
 
   deploy:
+    if: github.event_name == 'workflow_dispatch'
     needs: [test, build]
     runs-on: ubuntu-latest
     permissions:
