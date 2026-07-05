@@ -1,0 +1,107 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [2026-rewrite]
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    permissions:
+      checks: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: "npm"
+      - run: npm ci --prefer-offline
+      - run: npm run lint
+      - name: Run tests with coverage
+        run: npm run test:coverage
+      - name: Publish test results
+        if: always()
+        uses: dorny/test-reporter@v2
+        with:
+          name: Unit Tests
+          path: reports/junit.xml
+          reporter: java-junit
+      - name: Report coverage summary
+        if: always()
+        uses: irongut/CodeCoverageSummary@v1.3.0
+        with:
+          filename: coverage/cobertura-coverage.xml
+          format: markdown
+          output: file
+          thresholds: "20 50"
+      - name: Append coverage to job summary
+        if: always()
+        run: |
+          if [ -f code-coverage-results.md ]; then
+            cat code-coverage-results.md >> $GITHUB_STEP_SUMMARY
+          else
+            echo "⚠️ No coverage results file found" >> $GITHUB_STEP_SUMMARY
+          fi
+      - name: Upload test results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-results
+          path: |
+            reports/junit.xml
+            coverage/
+
+  build:
+    runs-on: ubuntu-latest
+    env:
+      VITE_EMAIL_ADDRESS: carljnicholls@hotmail.com
+      VITE_GITHUB: https://github.com/carljnicholls
+      VITE_LINKEDIN: https://www.linkedin.com/in/carljnicholls/
+      VITE_SKILLS: TypeScript, Vue 3, Tailwind CSS, CI/CD, REST API, Nomad, Fastify, Bruno, Event-driven architecture, OpenAPI, Nuxt, Postgres, MQTT
+      VITE_FORMSPREE_URL: https://formspree.io/f/your-form-id
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: "npm"
+      - run: npm ci --prefer-offline
+      - run: npm run build
+      - name: Check bundle size
+        run: |
+          echo "## Bundle size" >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
+          du -sh dist/ >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
+          echo "### Largest chunks" >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
+          du -sh dist/assets/* 2>/dev/null | sort -rh | head -10 >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: dist
+          path: ./dist
+      - name: Upload bundle analysis
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: bundle-analysis
+          path: reports/bundle-analysis.html
+
+  deploy:
+    if: github.event_name == 'workflow_dispatch'
+    needs: [test, build]
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: dist
+          path: ./dist
+      - uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
+          publish_branch: gh-pages
